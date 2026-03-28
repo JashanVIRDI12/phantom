@@ -1,0 +1,94 @@
+"use client";
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
+
+gsap.registerPlugin(useGSAP);
+
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Fleet", href: "/trucks" },
+  { label: "Career", href: "/career" },
+  { label: "About", href: "/about" },
+];
+
+export default function Navbar() {
+  const pathname = usePathname();
+  const navRef = useRef<HTMLElement>(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+  }, [isOpen]);
+
+  useGSAP(() => {
+    gsap.fromTo(".nav-item", { y: -20, opacity: 0 }, {
+      y: 0, opacity: 1, stagger: 0.05, duration: 0.6, ease: "power3.out", delay: 0.2
+    });
+  }, { scope: navRef });
+
+  return (
+    <>
+      <nav ref={navRef} className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+        <div className="container navbar-inner">
+          <Link href="/" className="nav-item nav-logo display" style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+            <Image 
+              src="/1313Asset.png" 
+              alt="Phantom Logistics Logo" 
+              width={220} 
+              height={55} 
+              priority 
+              style={{ objectFit: 'contain' }} 
+            />
+          </Link>
+
+          <ul className="nav-links">
+            {navLinks.map((link) => (
+              <li key={link.href} className="nav-item">
+                <Link href={link.href} className={`mono ${pathname === link.href ? "active" : ""}`}>
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <div className="nav-item nav-cta">
+            <Link href="/contact" className="btn-red" style={{ fontSize: '1rem', padding: '10px 24px' }}>
+              GET QUOTE
+            </Link>
+          </div>
+
+          <button onClick={() => setIsOpen(!isOpen)} className="menu-btn">
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile nav */}
+      <div className={`mobile-menu ${isOpen ? "open" : ""}`}>
+        {navLinks.map((link) => (
+          <Link key={link.href} href={link.href} onClick={() => setIsOpen(false)} 
+            className={`mobile-nav-link ${pathname === link.href ? "active" : ""}`}
+          >
+            {link.label}
+          </Link>
+        ))}
+        <Link href="/contact" onClick={() => setIsOpen(false)} className="btn-red" style={{ marginTop: '32px' }}>
+          GET QUOTE
+        </Link>
+      </div>
+    </>
+  );
+}
