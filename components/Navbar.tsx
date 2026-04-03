@@ -12,9 +12,8 @@ gsap.registerPlugin(useGSAP);
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
-  { label: "Fleet", href: "/trucks" },
-  { label: "Career", href: "/career" },
   { label: "About", href: "/about" },
+  { label: "Blog", href: "/blog" },
 ];
 
 export default function Navbar() {
@@ -41,7 +40,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav ref={navRef} className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+      <nav ref={navRef} className={`navbar navbar-dark-glass ${scrolled ? 'scrolled' : ''}`}>
         <div className="container navbar-inner">
           <Link href="/" className="nav-item nav-logo display" style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
             <Image 
@@ -65,7 +64,7 @@ export default function Navbar() {
           </ul>
 
           <div className="nav-item nav-cta">
-            <Link href="/contact" className="btn-red" style={{ fontSize: '1rem', padding: '10px 24px' }}>
+            <Link href="/contact" className="glass-btn" style={{ fontSize: '1rem', padding: '12px 28px', border: '1px solid rgba(232,0,13,0.5)', background: 'rgba(232,0,13,0.1)', color: 'var(--white)', textShadow: '0 0 10px rgba(232,0,13,0.5)', boxShadow: '0 0 20px rgba(232,0,13,0.2)' }}>
               GET QUOTE
             </Link>
           </div>
@@ -85,7 +84,7 @@ export default function Navbar() {
             {link.label}
           </Link>
         ))}
-        <Link href="/contact" onClick={() => setIsOpen(false)} className="btn-red" style={{ marginTop: '32px' }}>
+        <Link href="/contact" onClick={() => setIsOpen(false)} className="glass-btn" style={{ marginTop: '32px', textAlign: 'center', display: 'block', border: '1px solid rgba(232,0,13,0.5)', background: 'rgba(232,0,13,0.1)', color: 'var(--white)', textShadow: '0 0 10px rgba(232,0,13,0.5)', boxShadow: '0 0 20px rgba(232,0,13,0.2)' }}>
           GET QUOTE
         </Link>
       </div>
