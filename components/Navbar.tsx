@@ -47,9 +47,9 @@ export default function Navbar() {
               src="/1313Asset.png" 
               alt="Phantom Logistics Logo" 
               width={220} 
-              height={55} 
+              height={45} 
               priority 
-              style={{ objectFit: 'contain' }} 
+              style={{ objectFit: 'contain', objectPosition: 'left' }} 
             />
           </Link>
 

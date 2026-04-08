@@ -97,7 +97,7 @@ export default function AboutPage() {
             <div className="glass-badge-dot" /> ESTABLISHED COMMAND
           </div>
           
-          <h1 className="display" style={{ fontSize: 'clamp(5rem, 14vw, 12rem)', lineHeight: '0.9', margin: '0 0 32px 0', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '24px', perspective: '1000px' }}>
+          <h1 className="display" style={{ fontSize: 'clamp(3rem, 14vw, 12rem)', lineHeight: '0.9', margin: '0 0 32px 0', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '24px', perspective: '1000px' }}>
             <span className="text-white hero-title-word" style={{ display: 'inline-block', visibility: 'hidden' }}>A</span>
             <span className="text-white hero-title-word" style={{ display: 'inline-block', visibility: 'hidden' }}>TRUSTED</span>
             <span className="text-white hero-title-word" style={{ display: 'inline-block', visibility: 'hidden' }}>NAME</span>
@@ -115,10 +115,10 @@ export default function AboutPage() {
 
       {/* ─── KINETIC ABOUT EXPERTISE (OVERLAPPING SLIDES) ─── */}
       <section className="container mx-auto" style={{ padding: '80px 5vw 160px', overflow: 'hidden' }}>
-         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: '0', alignItems: 'center' }}>
+         <div className="editorial-grid">
             
             {/* Left Content Sliding gracefully */}
-            <div className="gsap-slide-left hero-float" style={{ gridColumn: '1 / 8', gridRow: '1', zIndex: 10, visibility: 'hidden' }}>
+            <div className="gsap-slide-left hero-float editorial-text-even" style={{ zIndex: 10, visibility: 'hidden' }}>
                <div className="glass-panel" style={{ padding: '80px', background: 'rgba(10, 10, 10, 0.85)', backdropFilter: 'blur(40px)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '24px', boxShadow: '0 40px 80px rgba(0,0,0,0.8)' }}>
                  <h2 className="display" style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', color: '#fff', marginBottom: '32px', lineHeight: 0.9 }}>
                    OPERATIONAL EXPERTISE <br/><span className="text-gradient-red" style={{ padding: '0.05em 0' }}>NEVER SETTLES.</span>
@@ -133,7 +133,7 @@ export default function AboutPage() {
             </div>
             
             {/* Background Graphic Abstract Sliding Right with Heavy Scrub Parallax */}
-            <div className="gsap-slide-right heavy-parallax" style={{ gridColumn: '6 / 13', gridRow: '1', zIndex: 5, visibility: 'hidden' }}>
+            <div className="gsap-slide-right heavy-parallax editorial-img-even" style={{ zIndex: 5, visibility: 'hidden' }}>
               <div className="glass-card" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '700px', backgroundColor: 'transparent', position: 'relative', overflow: 'hidden', border: '1px solid rgba(232,0,13,0.1)', borderRadius: '32px' }}>
                  
                  {/* Cinematic Video Parallax Mask */}

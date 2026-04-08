@@ -294,6 +294,45 @@
   }
 }
 
+.editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: center;
+  position: relative;
+}
+.editorial-img-even {
+  grid-column: 4 / 13;
+  grid-row: 1;
+}
+.editorial-img-odd {
+  grid-column: 1 / 10;
+  grid-row: 1;
+}
+.editorial-text-even {
+  grid-column: 1 / 7;
+  grid-row: 1;
+}
+.editorial-text-odd {
+  grid-column: 7 / 13;
+  grid-row: 1;
+}
+@media (max-width: 1024px) {
+  .editorial-grid {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 40px;
+  }
+  .editorial-grid.odd-row {
+    flex-direction: column;
+  }
+  .editorial-img-even, .editorial-img-odd, 
+  .editorial-text-even, .editorial-text-odd {
+    width: 100%;
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
 .glass-badge {
   display: inline-flex;
   align-items: center;
@@ -343,4 +382,63 @@
   padding: 140px 0;
   position: relative;
   z-index: 10;
+}
+
+/* MOBILE RESPONSIVENESS OVERRIDES */
+@media (max-width: 768px) {
+  .glass-panel, .editorial-text-even, .editorial-text-odd, .glass-card {
+    padding: 24px 20px !important;
+  }
+  .glass-image-panel {
+    height: 350px !important;
+  }
+  section {
+    padding-left: 5vw !important;
+    padding-right: 5vw !important;
+  }
+  .hero-floating {
+    display: none !important;
+  }
+  /* Additional smaller layout fixes for glass badges */
+  .glass-badge {
+    padding: 6px 12px;
+    font-size: 0.7rem;
+    margin-bottom: 24px !important;
+  }
+  
+  /* Scale down Marquee for mobile */
+  .marquee-glass-item {
+    font-size: 2.5rem;
+    gap: 32px;
+    padding: 0 16px;
+  }
+  
+  /* Adjust contact section grids */
+  .form-field input, .form-field textarea {
+    padding: 12px 16px !important;
+  }
+  .contact-map-item {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+    justify-items: center;
+  }
+  
+  /* Services Sticky Cards Mobile */
+  .service-card-inner {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+  }
+  .service-card-inner > div:first-child {
+    height: 300px;
+  }
+  .card-gradient-mask {
+    display: none !important;
+  }
+  .card-gradient-mask-mobile {
+    display: block !important;
+  }
+  .card-content-wrap {
+    padding: 40px 24px !important;
+    text-align: center;
+  }
 }

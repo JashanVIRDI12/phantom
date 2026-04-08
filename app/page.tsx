@@ -4,7 +4,7 @@ import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { ArrowUpRight, ShieldCheck, Zap, Globe, PackageOpen } from "lucide-react";
+import { ArrowUpRight, ShieldCheck, Globe, PackageOpen } from "lucide-react";
 import "./home-glass.css";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -17,7 +17,7 @@ export default function Home() {
     gsap.set(".gsap-reveal", { autoAlpha: 0, y: 60 });
     gsap.set(".hero-anim", { autoAlpha: 0, y: 50 });
     gsap.set(".hero-scale", { autoAlpha: 0, scale: 0.95 });
-    gsap.set(".hero-floating", { autoAlpha: 0, y: 30 }); // Specifically for floating cards
+
 
     // 2. Play Hero timeline
     const tl = gsap.timeline({ delay: 0.2 });
@@ -26,8 +26,7 @@ export default function Home() {
     tl.to(".hero-anim-1", { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out" })
       .to(".hero-anim-2", { autoAlpha: 1, y: 0, duration: 0.9, stagger: 0.15, ease: "power3.out" }, "-=0.6")
       .to(".hero-anim-3", { autoAlpha: 1, y: 0, duration: 0.8, ease: "power2.out" }, "-=0.6")
-      .to(".hero-scale", { autoAlpha: 1, scale: 1, duration: 0.7, ease: "back.out(1.5)" }, "-=0.5")
-      .to(".hero-floating", { autoAlpha: 1, y: 0, duration: 1, stagger: 0.2, ease: "power3.out" }, "-=0.6");
+      .to(".hero-scale", { autoAlpha: 1, scale: 1, duration: 0.7, ease: "back.out(1.5)" }, "-=0.5");
 
     // Scroll-triggered reveals for rest of the page
     ScrollTrigger.batch(".gsap-reveal", {
@@ -89,24 +88,8 @@ export default function Home() {
         </div>
         
         {/* A much lighter gradient so the video shines! We just need darkness at the very bottom and top for nav/content clarity */}
-        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(3,3,3,0.3) 0%, rgba(3,3,3,0.7) 100%), linear-gradient(to bottom, rgba(3,3,3,0.5) 0%, transparent 30%, transparent 70%, #030303 100%)', zIndex: -2 }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at center, rgba(3,3,3,0.3) 0%, rgba(3,3,3,0.7) 100%), linear-gradient(to bottom, rgba(3,3,3,0.5) 0%, transparent 30%, transparent 70%, #030303 100%)', zIndex: -2 }} />
 
-        {/* Floating Glassmorphism Cards positioned over video (Desktop scale aesthetics) */}
-        <div className="hero-floating hidden lg:flex flex-col floating-element" style={{ position: 'absolute', bottom: '100px', left: '5vw', padding: '32px', maxWidth: '320px', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(10,10,10,0.5)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '24px', visibility: 'hidden', zIndex: 10 }}>
-           <div style={{ background: 'rgba(232,0,13,0.1)', width: 48, height: 48, borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px', border: '1px solid rgba(232,0,13,0.2)' }}>
-             <ShieldCheck style={{ width: 24, height: 24, color: "var(--red)" }} />
-           </div>
-           <h3 className="display" style={{ fontSize: '1.8rem', marginBottom: '8px', color: '#fff' }}>Armored Security</h3>
-           <p className="mono" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.8rem', textTransform: 'none', letterSpacing: 'normal' }}>Intensely safe transit protocols across all dimensions. Fully locked down from pickup to dropoff.</p>
-        </div>
-
-        <div className="hero-floating hidden lg:flex flex-col floating-element-delayed" style={{ position: 'absolute', top: '160px', right: '5vw', padding: '32px', maxWidth: '320px', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(10,10,10,0.5)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '24px', visibility: 'hidden', zIndex: 10 }}>
-           <div style={{ background: 'rgba(232,0,13,0.1)', width: 48, height: 48, borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px', border: '1px solid rgba(232,0,13,0.2)' }}>
-             <Zap style={{ width: 24, height: 24, color: "var(--red)" }} />
-           </div>
-           <h3 className="display" style={{ fontSize: '1.8rem', marginBottom: '8px', color: '#fff' }}>Speed Optimized</h3>
-           <p className="mono" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.8rem', textTransform: 'none', letterSpacing: 'normal' }}>Fleet orchestration mapped intelligently in real-time, delivering sheer velocity on every run.</p>
-        </div>
 
         {/* Centered Typography Hero Focus */}
         <div style={{ position: 'relative', zIndex: 20, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', maxWidth: '1000px', width: '100%' }}>
@@ -116,7 +99,7 @@ export default function Home() {
             </div>
             
             <div style={{ padding: '20px 0' }}>
-              <h1 className="display" style={{ fontSize: 'clamp(5rem, 12vw, 10rem)', lineHeight: '1.1', margin: 0, textShadow: '0 20px 40px rgba(0,0,0,0.5)' }}>
+              <h1 className="display" style={{ fontSize: 'clamp(3rem, 11vw, 10rem)', lineHeight: '1.1', margin: 0, textShadow: '0 20px 40px rgba(0,0,0,0.5)' }}>
                 <span className="text-white hero-anim hero-anim-2" style={{ visibility: 'hidden', display: 'block', padding: '0.05em 0' }}>SEAMLESS</span>
                 <span className="text-gradient-red hero-anim hero-anim-2" style={{ visibility: 'hidden', display: 'block', padding: '0.05em 0' }}>DELIVERIES.</span>
               </h1>
@@ -147,7 +130,7 @@ export default function Home() {
 
       {/* ─── STATS SECTION ─── */}
       <section className="container mx-auto" style={{ padding: '0 5vw', margin: '40px auto 120px', display: 'flex', justifyContent: 'center', zIndex: 10, position: 'relative' }}>
-        <div className="glass-panel gsap-reveal" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', width: '100%', visibility: 'hidden' }}>
+        <div className="glass-panel gsap-reveal grid-4" style={{ width: '100%', visibility: 'hidden' }}>
           {[
             { v: "5+", l: "Years Relentless" },
             { v: "11K+", l: "Total Shipments" },

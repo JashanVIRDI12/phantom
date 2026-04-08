@@ -56,7 +56,7 @@ export default function ContactPage() {
           </div>
           
           <div style={{ padding: '10px 0' }}>
-            <h1 className="display hero-anim" style={{ fontSize: 'clamp(4rem, 8vw, 7rem)', lineHeight: '1.1', margin: 0, textShadow: '0 20px 40px rgba(0,0,0,0.5)', visibility: 'hidden' }}>
+            <h1 className="display hero-anim" style={{ fontSize: 'clamp(3rem, 8vw, 7rem)', lineHeight: '1.1', margin: 0, textShadow: '0 20px 40px rgba(0,0,0,0.5)', visibility: 'hidden' }}>
               INITIATE <span className="text-gradient-red" style={{ padding: '0.05em 0' }}>DISPATCH CONTACT.</span>
             </h1>
           </div>
