@@ -62,8 +62,8 @@ export default function DryVanPage() {
 
       {/* Editorial Content */}
       <section className="container mx-auto hero-fade" style={{ padding: "0 5vw 160px" }}>
-        <div className="editorial-grid" style={{ gap: "60px", alignItems: "center" }}>
-          <div className="editorial-text-even" style={{ paddingRight: "40px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))", gap: "60px", alignItems: "center" }}>
+          <div style={{ paddingRight: "20px" }}>
             <div className="glass-badge" style={{ marginBottom: "24px" }}>
               <div className="glass-badge-dot" /> SCALABLE CAPACITY
             </div>
@@ -87,9 +87,8 @@ export default function DryVanPage() {
               ))}
             </ul>
           </div>
-          <div className="editorial-img-even">
-            <div className="glass-image-panel" style={{ height: "600px" }}>
-              {/* Note: using a video to match the high-end feel, or repeating img1 but with different crop */}
+          <div>
+            <div className="glass-image-panel" style={{ height: "600px", width: "100%" }}>
               <img src="/img1.jpg" alt="Dry Van Trailers" style={{ objectPosition: "left center" }} />
             </div>
           </div>
