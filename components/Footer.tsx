@@ -27,9 +27,9 @@ export default function Footer() {
               />
             </Link>
             <p className="mono">
-              For short- or long-distance transportation, our company is fast, reliable, and meticulous when it comes to the distribution of your goods and products. 
+              From local deliveries to long-haul freight, we move your cargo efficiently without delays or uncertainty. Every load is tracked, managed, and delivered with full control.
               <br/><br/>
-              <span className="text-red">TRUE INDUSTRY LEADERS.</span>
+              <span className="text-red">NO DELAYS. NO GUESSWORK.</span>
             </p>
           </div>
 

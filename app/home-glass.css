@@ -424,6 +424,14 @@
   }
   
   /* Services Sticky Cards Mobile */
+  .s-card-inner {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+  }
+  .s-card-inner > div:first-child {
+    height: 280px;
+  }
+  /* Legacy card compat */
   .service-card-inner {
     grid-template-columns: 1fr !important;
     min-height: auto !important;
@@ -440,5 +448,19 @@
   .card-content-wrap {
     padding: 40px 24px !important;
     text-align: center;
+  }
+  /* Hero pillar strip: 2-col on mobile */
+  .s-hero-line {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0;
+  }
+  .s-hero-line > div {
+    border-left: none !important;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 20px 0 0 !important;
+  }
+  /* Card content padding on mobile */
+  .s-card-inner > div:last-child {
+    padding: 40px 28px !important;
   }
 }

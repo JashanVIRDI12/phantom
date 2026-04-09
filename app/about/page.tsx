@@ -97,16 +97,17 @@ export default function AboutPage() {
             <div className="glass-badge-dot" /> ESTABLISHED COMMAND
           </div>
           
-          <h1 className="display" style={{ fontSize: 'clamp(3rem, 14vw, 12rem)', lineHeight: '0.9', margin: '0 0 32px 0', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '24px', perspective: '1000px' }}>
-            <span className="text-white hero-title-word" style={{ display: 'inline-block', visibility: 'hidden' }}>A</span>
-            <span className="text-white hero-title-word" style={{ display: 'inline-block', visibility: 'hidden' }}>TRUSTED</span>
-            <span className="text-white hero-title-word" style={{ display: 'inline-block', visibility: 'hidden' }}>NAME</span>
-            <span className="text-white hero-title-word" style={{ display: 'inline-block', visibility: 'hidden' }}>IN</span>
-            <span className="text-gradient-red hero-title-word" style={{ display: 'inline-block', padding: '0.05em 0', visibility: 'hidden' }}>LOGISTICS.</span>
+          <h1 className="display" style={{ fontSize: 'clamp(2.5rem, 9vw, 8rem)', lineHeight: '0.9', margin: '0 0 32px 0', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '16px', perspective: '1000px' }}>
+            <span className="text-white hero-title-word" style={{ display: 'inline-block', visibility: 'hidden' }}>LOGISTICS</span>
+            <span className="text-white hero-title-word" style={{ display: 'inline-block', visibility: 'hidden' }}>YOU</span>
+            <span className="text-white hero-title-word" style={{ display: 'inline-block', visibility: 'hidden' }}>CAN</span>
+            <span className="text-white hero-title-word" style={{ display: 'inline-block', visibility: 'hidden' }}>DEPEND</span>
+            <span className="text-white hero-title-word" style={{ display: 'inline-block', visibility: 'hidden' }}>ON,</span>
+            <span className="text-gradient-red hero-title-word" style={{ display: 'inline-block', padding: '0.05em 0', visibility: 'hidden' }}>EVERYTIME.</span>
           </h1>
           
           <p className="mono hero-desc" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '1.25rem', margin: '0 auto', lineHeight: 1.8, textTransform: 'none', letterSpacing: 'normal', maxWidth: '800px', visibility: 'hidden' }}>
-            With over 5 years of ruthless efficiency in the transportation industry, Phantom Logistics has established itself as an elite, heavily trusted name in supply chain management.
+            With over 5 years of experience in transportation, Phantom Logistics delivers reliable, on-time freight solutions built on consistency and accountability.
           </p>
 
           <div className="hero-line-x" style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)', width: '100%', marginTop: '80px', visibility: 'hidden' }} />
@@ -120,14 +121,14 @@ export default function AboutPage() {
             {/* Left Content Sliding gracefully */}
             <div className="gsap-slide-left hero-float editorial-text-even" style={{ zIndex: 10, visibility: 'hidden' }}>
                <div className="glass-panel" style={{ padding: '80px', background: 'rgba(10, 10, 10, 0.85)', backdropFilter: 'blur(40px)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '24px', boxShadow: '0 40px 80px rgba(0,0,0,0.8)' }}>
-                 <h2 className="display" style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', color: '#fff', marginBottom: '32px', lineHeight: 0.9 }}>
-                   OPERATIONAL EXPERTISE <br/><span className="text-gradient-red" style={{ padding: '0.05em 0' }}>NEVER SETTLES.</span>
+                 <h2 className="display" style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', color: '#fff', marginBottom: '32px', lineHeight: 0.9, textTransform: 'uppercase' }}>
+                   OPERATIONAL EXPERTISE <br/><span className="text-gradient-red" style={{ padding: '0.05em 0' }}>THAT DELIVERS.</span>
                  </h2>
                  <p className="mono" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.05rem', lineHeight: '1.8', textTransform: 'none', letterSpacing: 'normal', marginBottom: '24px' }}>
-                   We pride ourselves on delivering exceptional service, guaranteed on-time performance, and innovative strategic solutions that forcefully assist our clients in succeeding inside today's hyper-competitive business environments.
+                   We focus on what matters most in logistics: consistent execution, on-time delivery, and clear communication. Every shipment is handled with structure and accountability, so your operations run without disruption.
                  </p>
                  <p className="mono" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.05rem', lineHeight: '1.8', textTransform: 'none', letterSpacing: 'normal' }}>
-                   Phantom Logistics believes our people are our absolute greatest asset. From the dispatch room to the highway, our culture of respect, safety, and uncompromising integrity ensures that your goods are managed by tactical professionals.
+                   Our team is built on experience, discipline, and responsibility. From dispatch to delivery, we ensure your freight is managed carefully, safely, and delivered exactly as promised.
                  </p>
                </div>
             </div>

@@ -1,187 +1,384 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { ArrowUpRight, Zap, ShieldCheck } from "lucide-react";
-import "../home-glass.css"; 
+import { ArrowUpRight, Truck, Thermometer, LayoutGrid } from "lucide-react";
+import "../home-glass.css";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const services = [
-  { num: "01", category: "STANDARD FREIGHT", title: "DRY VAN TRUCKING", desc: "Standard freight transportation doesn't have to be ordinary. We utilize heavily secure, weather-protected trailers designed to move massive volumes of general merchandise flawlessly and with absolute precision.", img: "/img1.jpg", imgPosition: "center bottom" },
-  { num: "02", category: "TEMPERATURE CONTROLLED", title: "REFRIGERATED TRANSPORT", desc: "Temperature deviation is unacceptable. Our state-of-the-art climate-controlled fleet handles perishable goods and pharmaceuticals with intense, food-grade safety standards that guarantee integrity from origin to destination.", img: "/img2.png" },
-  { num: "03", category: "EXCLUSIVE OPERATIONS", title: "DEDICATED FLEET", desc: "Gain exclusive access to our modern trucks and interchangeable trailers. Build a private fleet operated by our tactical transport teams dedicated entirely to mapping and executing your unique supply chain.", img: "/img3.png", imgPosition: "left center" },
+  {
+    num: "01",
+    category: "STANDARD FREIGHT",
+    title: "DRY VAN\nTRUCKING",
+    desc: "Reliable and cost-effective transportation for general freight. Our dry van trailers protect your goods from weather and external conditions, ensuring safe and consistent delivery across every mile.",
+    img: "/img1.jpg",
+    imgPosition: "center bottom",
+    icon: Truck,
+    tag: "FULL TRUCKLOAD",
+  },
+  {
+    num: "02",
+    category: "TEMPERATURE CONTROLLED",
+    title: "REFRIGERATED\nTRANSPORT",
+    desc: "Temperature-controlled transport for perishable and sensitive goods. We maintain consistent conditions throughout transit to ensure your cargo arrives fresh, safe, and uncompromised.",
+    img: "/img2.png",
+    imgPosition: "center center",
+    icon: Thermometer,
+    tag: "CLIMATE CONTROLLED",
+  },
+  {
+    num: "03",
+    category: "EXCLUSIVE OPERATIONS",
+    title: "DEDICATED\nFLEET",
+    desc: "A dedicated fleet built around your business needs. You get consistent capacity, priority dispatch, and full control over how your freight moves every day.",
+    img: "/img3.png",
+    imgPosition: "left center",
+    icon: LayoutGrid,
+    tag: "PRIVATE ROSTER",
+  },
+];
+
+const pillars = [
+  { label: "REAL-TIME TRACKING", sub: "Full shipment visibility at every mile." },
+  { label: "RAPID DISPATCH",     sub: "Zero lag between booking and wheels rolling." },
+  { label: "CARGO PROTECTION",   sub: "Strict protocols from pickup to delivery." },
+  { label: "SMART ROUTING",      sub: "Efficiency-first paths, no wasted time." },
 ];
 
 export default function ServicesPage() {
   const container = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    // Hidden initialization
-    gsap.set(".hero-element", { autoAlpha: 0, y: 50 });
-    gsap.set(".service-card", { autoAlpha: 0, y: 100 });
-    
-    // Hero Timeline
-    const tl = gsap.timeline({ delay: 0.1 });
-    tl.to(".hero-element", { autoAlpha: 1, y: 0, duration: 1, stagger: 0.15, ease: "power4.out" });
+    // — init invisible
+    gsap.set(".s-hero-anim",   { autoAlpha: 0, y: 60 });
+    gsap.set(".s-pillar",      { autoAlpha: 0, y: 40 });
+    gsap.set(".s-card",        { autoAlpha: 0, y: 80 });
 
-    // Staggered entrance for cards initially
-    ScrollTrigger.batch(".service-card", {
-      onEnter: (els) => gsap.to(els, { autoAlpha: 1, y: 0, duration: 1, stagger: 0.2, ease: "power4.out", overwrite: true }),
-      start: "top 85%", once: true
+    // — hero stagger
+    gsap.timeline({ delay: 0.15 })
+      .to(".s-hero-badge",    { autoAlpha: 1, y: 0, duration: 0.7, ease: "power3.out" })
+      .to(".s-hero-h1",       { autoAlpha: 1, y: 0, duration: 0.9, ease: "power4.out" }, "-=0.4")
+      .to(".s-hero-sub",      { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out" }, "-=0.5")
+      .to(".s-hero-line",     { autoAlpha: 1, y: 0, duration: 0.6, ease: "power2.out" }, "-=0.4")
+      .to(".s-pillar",        { autoAlpha: 1, y: 0, duration: 0.6, stagger: 0.12, ease: "power3.out" }, "-=0.3");
+
+    // — cards scroll reveal
+    ScrollTrigger.batch(".s-card", {
+      onEnter: (els) =>
+        gsap.to(els, { autoAlpha: 1, y: 0, duration: 1, stagger: 0.2, ease: "power4.out", overwrite: true }),
+      start: "top 88%",
+      once: true,
     });
 
-    // Advanced Sticky Card Stacking effect
-    const cards = gsap.utils.toArray('.service-card-inner') as HTMLElement[];
+    // — sticky card scale-down while scrolling past
+    const cards = gsap.utils.toArray(".s-card-inner") as HTMLElement[];
     cards.forEach((card, i) => {
-      // Don't animate the last card because nothing stacks on top of it
       if (i !== cards.length - 1) {
         gsap.to(card, {
-          scale: 0.9,
-          opacity: 0.4,
-          filter: "blur(10px)",
+          scale: 0.88,
+          opacity: 0.35,
+          filter: "blur(8px)",
           ease: "none",
           scrollTrigger: {
             trigger: card,
-            start: "top 120px", // When this card hits sticky position
-            end: "bottom top",  // When the sequence moves completely past
-            scrub: true
-          }
+            start: "top 110px",
+            end: "bottom top",
+            scrub: true,
+          },
         });
       }
     });
 
-    // Background image scrub parallax within the cards
-    gsap.utils.toArray('.card-bg-img').forEach((img: any) => {
-      gsap.fromTo(img, 
+    // — parallax on card imagery
+    gsap.utils.toArray(".s-card-img").forEach((img: any) => {
+      gsap.fromTo(
+        img,
         { y: -30, scale: 1.15 },
-        { y: 30, scale: 1.15, ease: "none", scrollTrigger: { trigger: img.closest('.service-card'), start: "top bottom", end: "bottom top", scrub: true } }
+        {
+          y: 30,
+          scale: 1.15,
+          ease: "none",
+          scrollTrigger: {
+            trigger: img.closest(".s-card"),
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        }
       );
     });
 
   }, { scope: container });
 
+  // Mouse-track glow on service cards
+  useEffect(() => {
+    const cards = document.querySelectorAll(".s-card-inner");
+    const onMove = (e: MouseEvent) => {
+      cards.forEach((c) => {
+        const r = (c as HTMLElement).getBoundingClientRect();
+        (c as HTMLElement).style.setProperty("--mx", `${e.clientX - r.left}px`);
+        (c as HTMLElement).style.setProperty("--my", `${e.clientY - r.top}px`);
+      });
+    };
+    window.addEventListener("mousemove", onMove);
+    return () => window.removeEventListener("mousemove", onMove);
+  }, []);
+
   return (
-    <div ref={container} className="home-glass-wrapper" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div ref={container} className="home-glass-wrapper">
 
-      {/* ─── KINETIC HERO ─── */}
-      <section style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '160px 5vw 80px', overflow: 'hidden' }}>
-        
-        {/* Background elements */}
-        <div style={{ position: 'absolute', inset: 0, zIndex: -3 }}>
-           <video src="/vid2.mp4" autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scale(1.1)' }} />
+      {/* ══════════════════════════════════════════
+          HERO
+      ══════════════════════════════════════════ */}
+      <section style={{ position: "relative", minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "flex-end", overflow: "hidden" }}>
+
+        {/* full-bleed video */}
+        <div style={{ position: "absolute", inset: 0, zIndex: -3 }}>
+          <video src="/vid2.mp4" autoPlay loop muted playsInline
+            style={{ width: "100%", height: "100%", objectFit: "cover", transform: "scale(1.08)" }} />
         </div>
-        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at center, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.7) 100%), linear-gradient(to bottom, rgba(10,10,10,0.4) 0%, transparent 40%, transparent 60%, rgba(3,3,3,1) 100%)', zIndex: -2 }} />
-        
-        {/* Ambient floating blobs */}
-        <div className="home-blob hero-element" style={{ width: '50vw', height: '50vw', background: 'var(--red)', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', opacity: 0.15, filter: 'blur(150px)', zIndex: -1 }} />
 
-        <div style={{ position: 'relative', zIndex: 10, textAlign: 'center', maxWidth: '1200px', width: '100%' }}>
-            <div className="glass-badge hero-element" style={{ marginBottom: '32px', background: 'rgba(0,0,0,0.6)', border: '1px solid rgba(232,0,13,0.3)', boxShadow: '0 0 20px rgba(232,0,13,0.2)' }}>
-              <div className="glass-badge-dot" /> COMPREHENSIVE PROTOCOLS
-            </div>
-            
-            <h1 className="display hero-element" style={{ fontSize: 'clamp(2.5rem, 10vw, 10rem)', lineHeight: '0.9', margin: '0 0 24px 0', textShadow: '0 20px 40px rgba(0,0,0,0.8)' }}>
-              ELITE <span className="text-gradient-red" style={{ padding: '0.05em 0' }}>LOGISTICS</span> CAPABILITIES.
-            </h1>
-            
-            <p className="mono hero-element" style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,0.8)', maxWidth: '700px', margin: '0 auto 48px', lineHeight: '1.8', textTransform: 'none', letterSpacing: 'normal' }}>
-              We orchestrate hyper-efficient supply chain execution across multiple specialized disciplines. Complete transparency, zero compromise.
+        {/* gradient veil — heavy at bottom so text is readable */}
+        <div style={{
+          position: "absolute", inset: 0, zIndex: -2,
+          background: "linear-gradient(to bottom, rgba(3,3,3,0.25) 0%, rgba(3,3,3,0.3) 40%, rgba(3,3,3,0.92) 75%, #030303 100%)"
+        }} />
+
+        {/* hero copy — pinned to bottom-left with editorial feel */}
+        <div style={{ position: "relative", zIndex: 10, padding: "0 5vw 100px", maxWidth: "1400px", margin: "0 auto", width: "100%" }}>
+
+
+          {/* giant headline */}
+          <h1 className="display s-hero-anim s-hero-h1" style={{
+            visibility: "hidden",
+            fontSize: "clamp(3.5rem, 12vw, 11rem)",
+            lineHeight: 0.88,
+            maxWidth: "900px",
+            marginBottom: "40px",
+          }}>
+            ELITE <span className="text-gradient-red">LOGISTICS</span><br />
+            CAPABILITIES.
+          </h1>
+
+          {/* sub + divider row */}
+          <div className="s-hero-anim s-hero-sub" style={{ visibility: "hidden", display: "flex", alignItems: "flex-end", gap: "48px", flexWrap: "wrap", marginBottom: "64px" }}>
+            <p style={{ fontSize: "1.05rem", color: "rgba(255,255,255,0.7)", lineHeight: "1.85", maxWidth: "480px", fontFamily: "'Inter', sans-serif", fontWeight: 400 }}>
+              From dispatch to delivery, we keep your freight moving efficiently. Real-time tracking and structured execution ensure nothing is left uncertain.
             </p>
+            <Link href="/contact" className="glass-btn" style={{ flexShrink: 0 }}>
+              GET FREIGHT QUOTE <ArrowUpRight />
+            </Link>
+          </div>
 
-            <div className="hero-element" style={{ display: 'flex', gap: '24px', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', background: 'rgba(255,255,255,0.03)', padding: '16px 24px', borderRadius: '100px', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)' }}>
-                <Zap size={20} color="var(--red)"/> <span className="mono" style={{ fontSize: '0.85rem' }}>RAPID DISPATCH</span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', background: 'rgba(255,255,255,0.03)', padding: '16px 24px', borderRadius: '100px', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)' }}>
-                <ShieldCheck size={20} color="var(--red)"/> <span className="mono" style={{ fontSize: '0.85rem' }}>SECURED CARGO</span>
-              </div>
-            </div>
-        </div>
-      </section>
-
-      {/* ─── STICKY CARD STACK SECTION ─── */}
-      <section style={{ padding: '40px 5vw 240px', background: '#030303', position: 'relative' }}>
-         <div className="container" style={{ maxWidth: '1200px' }}>
-            
-            {services.map((s, i) => (
-              <div key={i} className="service-card" style={{ 
-                position: 'sticky', 
-                top: `${100 + i * 40}px`,  // Cards stack slightly below the previous one
-                paddingTop: '20px',        // visual offset
-                marginBottom: '100px',     // scrolling distance between cards
-                zIndex: i + 1              // Ensures correct overlapping
+          {/* horizontal pillar strip */}
+          <div className="s-hero-anim s-hero-line" style={{ visibility: "hidden", borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: "40px", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "0" }}>
+            {pillars.map((p, i) => (
+              <div key={i} className="s-pillar" style={{
+                visibility: "hidden",
+                padding: "24px 32px 0",
+                borderLeft: i === 0 ? "none" : "1px solid rgba(255,255,255,0.07)",
               }}>
-                 
-                 {/* The actual visual glass card that receives the scale/opacity animation */}
-                 <div className="service-card-inner" style={{ 
-                   height: 'max-content',
-                   minHeight: '600px', /* Ensure it looks like a huge premium card */
-                   background: 'rgba(12, 12, 12, 0.95)',
-                   border: '1px solid rgba(255,255,255,0.08)',
-                   borderRadius: '32px',
-                   position: 'relative',
-                   overflow: 'hidden',
-                   display: 'grid',
-                   gridTemplateColumns: '1fr 1fr',
-                   boxShadow: '0 40px 100px rgba(0,0,0,0.8)',
-                   transformOrigin: 'top center'
-                 }}>
-                    
-                    {/* Media Half */}
-                    <div style={{ position: 'relative', overflow: 'hidden' }}>
-                      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(12,12,12,0) 0%, rgba(12,12,12,1) 100%)', zIndex: 10 }} className="card-gradient-mask" />
-                      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(12,12,12,1) 0%, transparent 100%)', zIndex: 10, display: 'none' }} className="card-gradient-mask-mobile" />
-                      
-                      <img className="card-bg-img" src={s.img} alt={s.title} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: s.imgPosition || 'center' }} />
-                      
-                      <span className="display text-red" style={{ position: 'absolute', top: '24px', left: '24px', fontSize: '10rem', opacity: 0.15, lineHeight: 0.8, zIndex: 5 }}>{s.num}</span>
-                    </div>
-
-                    {/* Content Half */}
-                    <div className="card-content-wrap" style={{ padding: '80px', display: 'flex', flexDirection: 'column', justifyItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 20 }}>
-                       <p className="mono text-red" style={{ fontSize: '0.8rem', letterSpacing: '2px', marginBottom: '16px', fontWeight: 'bold' }}>{s.category}</p>
-                       <h2 className="display" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', color: '#fff', marginBottom: '32px', lineHeight: '1' }}>{s.title}</h2>
-                       <p className="mono" style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.65)', lineHeight: '1.8', textTransform: 'none', letterSpacing: 'normal', marginBottom: '48px' }}>{s.desc}</p>
-                       
-                       <div>
-                         <Link href="/contact" className="glass-btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '16px 36px', borderRadius: '100px', fontSize: '1.25rem', fontFamily: "'Bebas Neue', sans-serif" }}>
-                           REQUEST DISPATCH <ArrowUpRight />
-                         </Link>
-                       </div>
-                    </div>
-
-                 </div>
-                 
+                <p className="display" style={{ fontSize: "1.05rem", color: "#fff", marginBottom: "8px", letterSpacing: "0.06em" }}>{p.label}</p>
+                <p style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.45)", fontFamily: "'Inter', sans-serif", fontWeight: 400 }}>{p.sub}</p>
               </div>
             ))}
+          </div>
 
-         </div>
+        </div>
       </section>
 
-      {/* ─── FINAL CTA ─── */}
-      <section style={{ padding: '0 5vw 160px', background: '#030303' }}>
-         <div className="container" style={{ maxWidth: '1200px' }}>
-            <div className="glass-panel" style={{ padding: '100px 40px', textAlign: 'center', border: '1px solid rgba(232, 0, 13, 0.2)', position: 'relative', overflow: 'hidden', borderRadius: '32px' }}>
-              <video src="/vid3.mp4" autoPlay loop muted playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.2, zIndex: -2, borderRadius: 'inherit' }} />
-              <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at center, rgba(232,0,13,0.1) 0%, rgba(3,3,3,0.95) 100%)', zIndex: -1, borderRadius: 'inherit' }} />
+      {/* ══════════════════════════════════════════
+          STICKY SERVICE CARDS
+      ══════════════════════════════════════════ */}
+      <section style={{ background: "#030303", padding: "60px 5vw 280px", position: "relative" }}>
+        <div style={{ maxWidth: "1360px", margin: "0 auto" }}>
 
-              <h2 className="display" style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', marginBottom: '24px', textShadow: '0 10px 30px rgba(0,0,0,0.6)', lineHeight: 1 }}>
-                SECURE YOUR <span className="text-gradient-red">ADVANTAGE.</span>
-              </h2>
-              <p className="mono" style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.8)', textTransform: 'none', letterSpacing: 'normal', marginBottom: '48px', maxWidth: '650px', margin: '0 auto 48px', lineHeight: '1.6' }}>
-                Phantom Logistics is fully equipped. Align our expansive fleet capabilities with your specific shipping requirements today.
-              </p>
-              <Link href="/contact" className="glass-btn" style={{ boxShadow: '0 20px 40px rgba(232,0,13,0.3)' }}>
-                CONSULT OPERATIONS <ArrowUpRight />
-              </Link>
+          {/* section label row */}
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "80px", borderBottom: "1px solid rgba(255,255,255,0.06)", paddingBottom: "32px" }}>
+            <span className="mono" style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.3)", letterSpacing: "3px" }}>SERVICES / 3 DISCIPLINES</span>
+            <span className="mono" style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.3)", letterSpacing: "3px" }}>SCROLL TO EXPLORE ↓</span>
+          </div>
+
+          {services.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <div key={i} className="s-card" style={{
+                visibility: "hidden",
+                position: "sticky",
+                top: `${100 + i * 32}px`,
+                marginBottom: "120px",
+                zIndex: i + 1,
+              }}>
+                <div className="s-card-inner" style={{
+                  borderRadius: "28px",
+                  overflow: "hidden",
+                  background: "rgba(11,11,11,0.98)",
+                  border: "1px solid rgba(255,255,255,0.07)",
+                  boxShadow: "0 60px 120px rgba(0,0,0,0.9)",
+                  display: "grid",
+                  gridTemplateColumns: "1fr 480px",
+                  height: "640px",
+                  transformOrigin: "top center",
+                  position: "relative",
+                }}>
+                  {/* — radial mouse glow */}
+                  <div style={{
+                    position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0,
+                    background: "radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), rgba(232,0,13,0.07), transparent 50%)",
+                    borderRadius: "inherit",
+                  }} />
+
+                  {/* IMAGE SIDE */}
+                  <div style={{ position: "relative", overflow: "hidden" }}>
+                    <img
+                      className="s-card-img"
+                      src={s.img}
+                      alt={s.title}
+                      style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: s.imgPosition, display: "block" }}
+                    />
+                    {/* right-edge fade into content */}
+                    <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, transparent 50%, rgba(11,11,11,0.98) 100%)" }} />
+                    {/* bottom-edge fade */}
+                    <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(11,11,11,0.6) 0%, transparent 40%)" }} />
+
+                    {/* giant ghost number */}
+                    <span className="display" style={{
+                      position: "absolute", top: "28px", left: "32px",
+                      fontSize: "clamp(6rem, 14vw, 12rem)",
+                      color: "rgba(255,255,255,0.06)",
+                      lineHeight: 0.85, userSelect: "none", zIndex: 5,
+                    }}>{s.num}</span>
+
+                    {/* tag pill */}
+                    <div style={{
+                      position: "absolute", bottom: "32px", left: "32px", zIndex: 10,
+                      background: "rgba(0,0,0,0.7)", backdropFilter: "blur(12px)",
+                      border: "1px solid rgba(255,255,255,0.1)",
+                      borderRadius: "100px", padding: "8px 18px",
+                      display: "flex", alignItems: "center", gap: "8px",
+                    }}>
+                      <div style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--red)", boxShadow: "0 0 8px var(--red)" }} />
+                      <span className="mono" style={{ fontSize: "0.72rem", letterSpacing: "2px", color: "rgba(255,255,255,0.7)" }}>{s.tag}</span>
+                    </div>
+                  </div>
+
+                  {/* CONTENT SIDE */}
+                  <div style={{
+                    padding: "72px 64px",
+                    display: "flex", flexDirection: "column", justifyContent: "center",
+                    position: "relative", zIndex: 5,
+                  }}>
+                    {/* category + icon row */}
+                    <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "32px" }}>
+                      <div style={{
+                        width: 48, height: 48, borderRadius: "12px",
+                        background: "rgba(232,0,13,0.12)", border: "1px solid rgba(232,0,13,0.25)",
+                        display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
+                      }}>
+                        <Icon size={22} color="var(--red)" />
+                      </div>
+                      <span className="mono" style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.35)", letterSpacing: "3px" }}>{s.category}</span>
+                    </div>
+
+                    {/* title */}
+                    <h2 className="display" style={{
+                      fontSize: "clamp(2.8rem, 4vw, 4.5rem)",
+                      lineHeight: 0.92, color: "#fff",
+                      marginBottom: "32px",
+                      whiteSpace: "pre-line",
+                    }}>{s.title}</h2>
+
+                    {/* thin red rule */}
+                    <div style={{ width: 48, height: 2, background: "var(--red)", marginBottom: "32px", borderRadius: 2 }} />
+
+                    {/* description */}
+                    <p style={{
+                      fontSize: "0.98rem", color: "rgba(255,255,255,0.55)",
+                      lineHeight: "1.9", marginBottom: "48px",
+                      fontFamily: "'Inter', sans-serif", fontWeight: 400,
+                    }}>{s.desc}</p>
+
+                    {/* CTA */}
+                    <Link href="/contact" style={{
+                      display: "inline-flex", alignItems: "center", gap: "10px",
+                      fontFamily: "'Barlow Condensed', sans-serif", fontSize: "1.15rem",
+                      fontWeight: 700, letterSpacing: "0.06em",
+                      color: "#fff", textTransform: "uppercase",
+                      background: "rgba(255,255,255,0.04)",
+                      border: "1px solid rgba(255,255,255,0.1)",
+                      borderRadius: "100px", padding: "14px 32px",
+                      transition: "background 0.3s, border-color 0.3s",
+                      width: "fit-content",
+                    }}
+                      onMouseEnter={e => {
+                        (e.currentTarget as HTMLAnchorElement).style.background = "rgba(232,0,13,0.15)";
+                        (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(232,0,13,0.4)";
+                      }}
+                      onMouseLeave={e => {
+                        (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.04)";
+                        (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.1)";
+                      }}
+                    >
+                      REQUEST A QUOTE <ArrowUpRight size={18} />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          CTA
+      ══════════════════════════════════════════ */}
+      <section style={{ padding: "0 5vw 160px", background: "#030303" }}>
+        <div style={{ maxWidth: "1360px", margin: "0 auto" }}>
+          <div style={{
+            borderRadius: "28px", overflow: "hidden",
+            position: "relative", padding: "120px 80px",
+            textAlign: "center",
+            border: "1px solid rgba(232,0,13,0.15)",
+            background: "rgba(10,10,10,0.8)",
+          }}>
+            {/* video bg */}
+            <video src="/vid3.mp4" autoPlay loop muted playsInline style={{
+              position: "absolute", inset: 0, width: "100%", height: "100%",
+              objectFit: "cover", opacity: 0.15, zIndex: -2,
+            }} />
+            {/* radial veil */}
+            <div style={{
+              position: "absolute", inset: 0, zIndex: -1,
+              background: "radial-gradient(ellipse at center, rgba(232,0,13,0.08) 0%, rgba(3,3,3,0.96) 70%)",
+            }} />
+
+            <div className="glass-badge" style={{ margin: "0 auto 32px" }}>
+              <div className="glass-badge-dot" /> LET&rsquo;S GET MOVING
             </div>
-         </div>
+
+            <h2 className="display" style={{ fontSize: "clamp(3rem, 7vw, 6rem)", lineHeight: 0.9, marginBottom: "28px" }}>
+              READY TO MOVE <span className="text-gradient-red">YOUR FREIGHT?</span>
+            </h2>
+
+            <p style={{
+              fontSize: "1rem", color: "rgba(255,255,255,0.55)", lineHeight: "1.85",
+              maxWidth: "580px", margin: "0 auto 52px",
+              fontFamily: "'Inter', sans-serif", fontWeight: 400,
+            }}>
+              Tell us your requirements and we will handle the rest. From planning to delivery, your shipment stays on track.
+            </p>
+
+            <Link href="/contact" className="glass-btn" style={{ boxShadow: "0 20px 50px rgba(232,0,13,0.35)" }}>
+              GET FREIGHT QUOTE <ArrowUpRight />
+            </Link>
+          </div>
+        </div>
       </section>
 
     </div>
   );
 }
-
