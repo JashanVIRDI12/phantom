@@ -138,14 +138,14 @@ export default function ServicesPage() {
 
         {/* full-bleed video */}
         <div style={{ position: "absolute", inset: 0, zIndex: -3 }}>
-          <video src="/vid2.mp4" autoPlay loop muted playsInline
-            style={{ width: "100%", height: "100%", objectFit: "cover", transform: "scale(1.08)" }} />
+          <video className="s-hero-video" src="/vid2.mp4" autoPlay loop muted playsInline
+            style={{ width: "100%", height: "100%", objectFit: "fill" }} />
         </div>
 
         {/* gradient veil — heavy at bottom so text is readable */}
         <div style={{
           position: "absolute", inset: 0, zIndex: -2,
-          background: "linear-gradient(to bottom, rgba(3,3,3,0.25) 0%, rgba(3,3,3,0.3) 40%, rgba(3,3,3,0.92) 75%, #030303 100%)"
+          background: "linear-gradient(to bottom, rgba(3,3,3,0.2) 0%, rgba(3,3,3,0.4) 50%, rgba(3,3,3,0.85) 85%, #030303 100%)"
         }} />
 
         {/* hero copy — pinned to bottom-left with editorial feel */}

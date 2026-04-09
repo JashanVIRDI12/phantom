@@ -463,4 +463,14 @@
   .s-card-inner > div:last-child {
     padding: 40px 28px !important;
   }
+  
+  /* Zoom video heavily on mobile */
+  .s-hero-video {
+    transform: scale(4) !important;
+    object-position: center !important;
+  }
+}
+
+.s-hero-video {
+  transform: scale(1.08);
 }
