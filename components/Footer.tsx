@@ -41,6 +41,8 @@ export default function Footer() {
                 <li><Link href="/trucks">FLEET ROSTER <ArrowUpRight size={14} /></Link></li>
                 <li><Link href="/career">DEPLOYMENTS <ArrowUpRight size={14} /></Link></li>
                 <li><Link href="/services">CAPABILITIES <ArrowUpRight size={14} /></Link></li>
+                <li><Link href="/faq">FAQ <ArrowUpRight size={14} /></Link></li>
+                <li><Link href="/safety">SAFETY PROTOCOLS <ArrowUpRight size={14} /></Link></li>
               </ul>
             </div>
             <div className="footer-col">

@@ -14,6 +14,8 @@ const navLinks = [
   { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Safety", href: "/safety" },
 ];
 
 export default function Navbar() {
@@ -48,7 +50,8 @@ export default function Navbar() {
               alt="Phantom Logistics Logo" 
               width={220} 
               height={45} 
-              priority 
+              priority
+              loading="eager"
               style={{ objectFit: 'contain', objectPosition: 'left' }} 
             />
           </Link>

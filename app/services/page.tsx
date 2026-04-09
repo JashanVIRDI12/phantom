@@ -19,6 +19,7 @@ const services = [
     imgPosition: "center bottom",
     icon: Truck,
     tag: "FULL TRUCKLOAD",
+    href: "/services/dry-van",
   },
   {
     num: "02",
@@ -29,6 +30,7 @@ const services = [
     imgPosition: "center center",
     icon: Thermometer,
     tag: "CLIMATE CONTROLLED",
+    href: "/services/refrigerated",
   },
   {
     num: "03",
@@ -39,6 +41,7 @@ const services = [
     imgPosition: "left center",
     icon: LayoutGrid,
     tag: "PRIVATE ROSTER",
+    href: "/services/dedicated",
   },
 ];
 
@@ -138,8 +141,10 @@ export default function ServicesPage() {
 
         {/* full-bleed video */}
         <div style={{ position: "absolute", inset: 0, zIndex: -3 }}>
-          <video className="s-hero-video" src="/vid2.mp4" autoPlay loop muted playsInline
-            style={{ width: "100%", height: "100%", objectFit: "fill" }} />
+          <video className="s-hero-video desktop-only" src="/vid3.mp4" autoPlay loop muted playsInline
+            style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          <video className="s-hero-video mobile-only" src="/vid2.mp4" autoPlay loop muted playsInline
+            style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         </div>
 
         {/* gradient veil — heavy at bottom so text is readable */}
@@ -303,28 +308,30 @@ export default function ServicesPage() {
                     }}>{s.desc}</p>
 
                     {/* CTA */}
-                    <Link href="/contact" style={{
-                      display: "inline-flex", alignItems: "center", gap: "10px",
-                      fontFamily: "'Barlow Condensed', sans-serif", fontSize: "1.15rem",
-                      fontWeight: 700, letterSpacing: "0.06em",
-                      color: "#fff", textTransform: "uppercase",
-                      background: "rgba(255,255,255,0.04)",
-                      border: "1px solid rgba(255,255,255,0.1)",
-                      borderRadius: "100px", padding: "14px 32px",
-                      transition: "background 0.3s, border-color 0.3s",
-                      width: "fit-content",
-                    }}
-                      onMouseEnter={e => {
-                        (e.currentTarget as HTMLAnchorElement).style.background = "rgba(232,0,13,0.15)";
-                        (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(232,0,13,0.4)";
+                    <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+                      <Link href={s.href} style={{
+                        display: "inline-flex", alignItems: "center", gap: "10px",
+                        fontFamily: "'Barlow Condensed', sans-serif", fontSize: "1.15rem",
+                        fontWeight: 700, letterSpacing: "0.06em",
+                        color: "#fff", textTransform: "uppercase",
+                        background: "rgba(255,255,255,0.04)",
+                        border: "1px solid rgba(255,255,255,0.1)",
+                        borderRadius: "100px", padding: "14px 32px",
+                        transition: "background 0.3s, border-color 0.3s",
+                        width: "fit-content",
                       }}
-                      onMouseLeave={e => {
-                        (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.04)";
-                        (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.1)";
-                      }}
-                    >
-                      REQUEST A QUOTE <ArrowUpRight size={18} />
-                    </Link>
+                        onMouseEnter={e => {
+                          (e.currentTarget as HTMLAnchorElement).style.background = "rgba(232,0,13,0.15)";
+                          (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(232,0,13,0.4)";
+                        }}
+                        onMouseLeave={e => {
+                          (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.04)";
+                          (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.1)";
+                        }}
+                      >
+                        LEARN MORE <ArrowUpRight size={18} />
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -332,6 +339,8 @@ export default function ServicesPage() {
           })}
         </div>
       </section>
+
+
 
       {/* ══════════════════════════════════════════
           CTA
