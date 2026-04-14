@@ -80,7 +80,7 @@ export default function Home() {
     <div ref={container} className="home-glass-wrapper">
 
       {/* ─── NEW CENTRALLY REDESIGNED HERO SECTION WITH VISIBLE VIDEO ─── */}
-      <section style={{ minHeight: '100vh', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', padding: '120px 5vw 80px' }}>
+      <section style={{ minHeight: '100vh', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', padding: '180px 5vw 80px' }}>
         
         {/* Full Screen Cinematic Hero Video */}
         <div style={{ position: 'absolute', inset: 0, zIndex: -3 }}>

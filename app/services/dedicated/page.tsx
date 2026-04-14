@@ -62,8 +62,8 @@ export default function DedicatedPage() {
 
       {/* Editorial Content */}
       <section className="container mx-auto hero-fade" style={{ padding: "0 5vw 160px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))", gap: "60px", alignItems: "center" }}>
-          <div style={{ paddingRight: "20px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "40px", alignItems: "center" }}>
+          <div>
             <div className="glass-badge" style={{ marginBottom: "24px" }}>
               <div className="glass-badge-dot" /> STRATEGIC PARTNERSHIP
             </div>

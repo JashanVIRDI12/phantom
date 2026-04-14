@@ -3,10 +3,10 @@ import { useRef } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ArrowUpRight, Truck, ShieldCheck, Clock, MapPin } from "lucide-react";
+import { ArrowUpRight, Layers, Target, CheckCircle2, DollarSign } from "lucide-react";
 import "../../home-glass.css";
 
-export default function DryVanPage() {
+export default function LtlTruckingPage() {
   const container = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
@@ -22,22 +22,22 @@ export default function DryVanPage() {
         
         {/* BG IMAGE */}
         <div style={{ position: "absolute", inset: 0, zIndex: -3 }}>
-          <img src="/img1.jpg" alt="Dry Van Trucking" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          <img src="/img3.png" alt="LTL Trucking" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         </div>
         
         <div style={{ position: "absolute", inset: 0, zIndex: -2, background: "linear-gradient(to bottom, rgba(3,3,3,0.4) 0%, rgba(3,3,3,0.85) 60%, #030303 100%)" }} />
 
         <div style={{ position: "relative", zIndex: 10, padding: "0 5vw 80px", maxWidth: "1400px", margin: "0 auto", width: "100%" }}>
           <div className="glass-badge hero-fade" style={{ marginBottom: "24px" }}>
-            <div className="glass-badge-dot" /> STANDARD FREIGHT
+            <div className="glass-badge-dot" /> PARTIAL LOAD
           </div>
           
           <h1 className="display hero-fade" style={{ fontSize: "clamp(3.5rem, 8vw, 7rem)", lineHeight: 0.9, marginBottom: "32px", textTransform: "uppercase" }}>
-            DRY VAN <br /><span className="text-gradient-red">TRUCKING</span>
+            LTL <br /><span className="text-gradient-red">TRUCKING</span>
           </h1>
           
           <p className="hero-fade" style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.8, maxWidth: "600px", fontFamily: "'Inter', sans-serif" }}>
-            Reliable and cost-effective transportation for general freight. Our dry van trailers protect your goods from weather and external conditions, ensuring safe and consistent delivery across every mile.
+            Efficient Less-Than-Truckload shipping for freight that doesn't require a full trailer. Share the ride and save on costs while maintaining reliable delivery schedules.
           </p>
         </div>
       </section>
@@ -45,9 +45,9 @@ export default function DryVanPage() {
       <section className="container mx-auto hero-fade" style={{ padding: "80px 5vw 160px" }}>
         <div className="glass-grid-3">
             {[ 
-              { icon: ShieldCheck, title: "MAXIMUM SECURITY", desc: "Enclosed trailers ensure your cargo remains secure from the elements and protected during transit." },
-              { icon: Clock, title: "PUNCTUAL DELIVERY", desc: "Optimized routing and disciplined drivers keep your standard freight on schedule." },
-              { icon: MapPin, title: "NATIONWIDE REACH", desc: "Our extensive dry van fleet allows for reliable transportation across any distance." }
+              { icon: DollarSign, title: "COST EFFICIENT", desc: "Pay only for the space you use. LTL allows you to ship smarter by dividing transport costs." },
+              { icon: Layers, title: "FLEXIBLE VOLUME", desc: "Accommodates fluctuations in your shipping volume without needing to charter dedicated trucks." },
+              { icon: Target, title: "ROUTINE PRECISION", desc: "Established hubs and cross-docking locations ensure your partial loads move with clockwork routine." }
             ].map((f, i) => (
               <div key={i} className="glass-card">
                 <div className="glass-icon-wrap" style={{ marginBottom: "24px", width: 56, height: 56 }}>
@@ -65,23 +65,23 @@ export default function DryVanPage() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "40px", alignItems: "center" }}>
           <div>
             <div className="glass-badge" style={{ marginBottom: "24px" }}>
-              <div className="glass-badge-dot" /> SCALABLE CAPACITY
+              <div className="glass-badge-dot" /> DYNAMIC SCALING
             </div>
             <h2 className="display" style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", marginBottom: "32px", lineHeight: 1 }}>
-              ENGINEERED FOR <br/><span className="text-gradient-red">CONSISTENCY</span>
+              SHIP SMARTER <br/><span className="text-gradient-red">NOT HARDER</span>
             </h2>
             <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.8, marginBottom: "24px", fontFamily: "'Inter', sans-serif" }}>
-              Dry van trucking requires more than just available trailers—it demands meticulous planning, proactive tracking, and a network of drivers ready to move at a moment's notice. Phantom Logistics provides seamless dry van services designed to manage both scheduled freight and unexpected capacity surges.
+              LTL trucking is the backbone of efficient supply chains for businesses that don't always fill entire trailers. Phantom Logistics optimizes route consolidation so your partial shipments are treated with full-truckload priority.
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
               {[
-                "Full Truckload (FTL) capabilities for volume shipments.",
-                "Drop-trailer programs for flexible loading schedules.",
-                "24/7 dispatch monitoring ensuring zero unnotified delays.",
-                "Late-model equipment reducing breakdown risks."
+                "Consolidated shipments reducing your carbon footprint.",
+                "Accessorial services like liftgates inside delivery.",
+                "Damage-free handling protocols at terminal transfers.",
+                "Accurate weighing and re-weighing discrepancy checks."
               ].map((item, i) => (
                 <li key={i} style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "1rem", color: "rgba(255,255,255,0.8)", fontFamily: "'Inter', sans-serif" }}>
-                  <ShieldCheck size={20} color="var(--red)" />
+                  <CheckCircle2 size={20} color="var(--red)" />
                   {item}
                 </li>
               ))}
@@ -89,7 +89,7 @@ export default function DryVanPage() {
           </div>
           <div>
             <div className="glass-image-panel" style={{ height: "600px", width: "100%" }}>
-              <img src="/img1.jpg" alt="Dry Van Trailers" style={{ objectPosition: "left center" }} />
+              <img src="/img3.png" alt="LTL Transport" style={{ objectPosition: "right" }} />
             </div>
           </div>
         </div>

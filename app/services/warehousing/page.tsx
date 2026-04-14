@@ -3,10 +3,10 @@ import { useRef } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ArrowUpRight, Truck, ShieldCheck, Clock, MapPin } from "lucide-react";
+import { ArrowUpRight, Warehouse, ShieldCheck, Box, CheckSquare } from "lucide-react";
 import "../../home-glass.css";
 
-export default function DryVanPage() {
+export default function WarehousingPage() {
   const container = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
@@ -22,22 +22,22 @@ export default function DryVanPage() {
         
         {/* BG IMAGE */}
         <div style={{ position: "absolute", inset: 0, zIndex: -3 }}>
-          <img src="/img1.jpg" alt="Dry Van Trucking" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          <img src="/img1.jpg" alt="Warehousing" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         </div>
         
         <div style={{ position: "absolute", inset: 0, zIndex: -2, background: "linear-gradient(to bottom, rgba(3,3,3,0.4) 0%, rgba(3,3,3,0.85) 60%, #030303 100%)" }} />
 
         <div style={{ position: "relative", zIndex: 10, padding: "0 5vw 80px", maxWidth: "1400px", margin: "0 auto", width: "100%" }}>
           <div className="glass-badge hero-fade" style={{ marginBottom: "24px" }}>
-            <div className="glass-badge-dot" /> STANDARD FREIGHT
+            <div className="glass-badge-dot" /> SECURE STORAGE
           </div>
           
           <h1 className="display hero-fade" style={{ fontSize: "clamp(3.5rem, 8vw, 7rem)", lineHeight: 0.9, marginBottom: "32px", textTransform: "uppercase" }}>
-            DRY VAN <br /><span className="text-gradient-red">TRUCKING</span>
+            ELITE <br /><span className="text-gradient-red">WAREHOUSING</span>
           </h1>
           
           <p className="hero-fade" style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.8, maxWidth: "600px", fontFamily: "'Inter', sans-serif" }}>
-            Reliable and cost-effective transportation for general freight. Our dry van trailers protect your goods from weather and external conditions, ensuring safe and consistent delivery across every mile.
+            Secure, structured, and scalable warehousing solutions. We provide short-term and long-term storage options with full inventory management, ensuring your goods are safe and ready for dispatch.
           </p>
         </div>
       </section>
@@ -45,9 +45,9 @@ export default function DryVanPage() {
       <section className="container mx-auto hero-fade" style={{ padding: "80px 5vw 160px" }}>
         <div className="glass-grid-3">
             {[ 
-              { icon: ShieldCheck, title: "MAXIMUM SECURITY", desc: "Enclosed trailers ensure your cargo remains secure from the elements and protected during transit." },
-              { icon: Clock, title: "PUNCTUAL DELIVERY", desc: "Optimized routing and disciplined drivers keep your standard freight on schedule." },
-              { icon: MapPin, title: "NATIONWIDE REACH", desc: "Our extensive dry van fleet allows for reliable transportation across any distance." }
+              { icon: ShieldCheck, title: "MAXIMUM SECURITY", desc: "Our facilities are monitored 24/7 with strict access controls to ensure your inventory is never compromised." },
+              { icon: Box, title: "INVENTORY CONTROL", desc: "Advanced management systems keep precise track of your goods from arrival directly through to departure." },
+              { icon: Warehouse, title: "SCALABLE SPACE", desc: "Flexible storage footprints that adapt to your seasonal surges and changing business requirements." }
             ].map((f, i) => (
               <div key={i} className="glass-card">
                 <div className="glass-icon-wrap" style={{ marginBottom: "24px", width: 56, height: 56 }}>
@@ -65,23 +65,23 @@ export default function DryVanPage() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "40px", alignItems: "center" }}>
           <div>
             <div className="glass-badge" style={{ marginBottom: "24px" }}>
-              <div className="glass-badge-dot" /> SCALABLE CAPACITY
+              <div className="glass-badge-dot" /> STREAMLINED LOGISTICS
             </div>
             <h2 className="display" style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", marginBottom: "32px", lineHeight: 1 }}>
-              ENGINEERED FOR <br/><span className="text-gradient-red">CONSISTENCY</span>
+              SMART STORAGE <br/><span className="text-gradient-red">SOLUTIONS</span>
             </h2>
             <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.8, marginBottom: "24px", fontFamily: "'Inter', sans-serif" }}>
-              Dry van trucking requires more than just available trailers—it demands meticulous planning, proactive tracking, and a network of drivers ready to move at a moment's notice. Phantom Logistics provides seamless dry van services designed to manage both scheduled freight and unexpected capacity surges.
+              Modern supply chains drop the ball without a reliable staging ground. Phantom Logistics bridges the gap between arrival and dispatch with optimized warehousing operations.
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
               {[
-                "Full Truckload (FTL) capabilities for volume shipments.",
-                "Drop-trailer programs for flexible loading schedules.",
-                "24/7 dispatch monitoring ensuring zero unnotified delays.",
-                "Late-model equipment reducing breakdown risks."
+                "Short-term cross-docking to keep freight moving.",
+                "Long-term distribution storage for reserve inventory.",
+                "Climate-adjusted zones for sensitive products.",
+                "Rapid loadouts integrated with our dispatch teams."
               ].map((item, i) => (
                 <li key={i} style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "1rem", color: "rgba(255,255,255,0.8)", fontFamily: "'Inter', sans-serif" }}>
-                  <ShieldCheck size={20} color="var(--red)" />
+                  <CheckSquare size={20} color="var(--red)" />
                   {item}
                 </li>
               ))}
@@ -89,7 +89,7 @@ export default function DryVanPage() {
           </div>
           <div>
             <div className="glass-image-panel" style={{ height: "600px", width: "100%" }}>
-              <img src="/img1.jpg" alt="Dry Van Trailers" style={{ objectPosition: "left center" }} />
+              <img src="/img1.jpg" alt="Warehousing Facility" style={{ objectPosition: "center" }} />
             </div>
           </div>
         </div>
@@ -99,7 +99,7 @@ export default function DryVanPage() {
       <section style={{ padding: "0 5vw 160px" }}>
         <div style={{ maxWidth: "1360px", margin: "0 auto" }}>
           <div className="glass-panel" style={{ padding: "80px 40px", textAlign: "center", border: "1px solid rgba(232,0,13,0.15)" }}>
-            <h2 className="display" style={{ fontSize: "clamp(3rem, 5vw, 4.5rem)", marginBottom: "24px" }}>READY TO MOVE DRY FREIGHT?</h2>
+            <h2 className="display" style={{ fontSize: "clamp(3rem, 5vw, 4.5rem)", marginBottom: "24px" }}>READY FOR BETTER STORAGE?</h2>
             <Link href="/contact" className="glass-btn">
               REQUEST QUOTE <ArrowUpRight />
             </Link>

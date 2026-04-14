@@ -4,7 +4,7 @@ import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { ArrowUpRight, Truck, Thermometer, LayoutGrid } from "lucide-react";
+import { ArrowUpRight, Truck, Thermometer, LayoutGrid, Warehouse, Package, Layers, Zap, Flame, Map, Navigation, Globe } from "lucide-react";
 import "../home-glass.css";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -42,6 +42,94 @@ const services = [
     icon: LayoutGrid,
     tag: "PRIVATE ROSTER",
     href: "/services/dedicated",
+  },
+  {
+    num: "04",
+    category: "STORAGE SOLUTIONS",
+    title: "WAREHOUSING",
+    desc: "Secure, structured, and scalable warehousing solutions. We provide short-term and long-term storage options with full inventory management, ensuring your goods are safe and ready for dispatch.",
+    img: "/img1.jpg",
+    imgPosition: "center center",
+    icon: Warehouse,
+    tag: "SECURE STORAGE",
+    href: "/services/warehousing",
+  },
+  {
+    num: "05",
+    category: "GENERAL FREIGHT",
+    title: "FREIGHT\nSHIPPING",
+    desc: "Comprehensive freight shipping services across domestic routes. From standard pallets to specialized loads, we coordinate the entire shipping process for seamless delivery.",
+    img: "/img2.png",
+    imgPosition: "center center",
+    icon: Package,
+    tag: "NATIONWIDE",
+    href: "/services/freight-shipping",
+  },
+  {
+    num: "06",
+    category: "PARTIAL LOAD",
+    title: "LTL\nTRUCKING",
+    desc: "Efficient Less-Than-Truckload shipping for freight that doesn't require a full trailer. Share the ride and save on costs while maintaining reliable delivery schedules.",
+    img: "/img3.png",
+    imgPosition: "center center",
+    icon: Layers,
+    tag: "COST EFFICIENT",
+    href: "/services/ltl-trucking",
+  },
+  {
+    num: "07",
+    category: "TIME-CRITICAL",
+    title: "EXPEDITED\nTRUCKING",
+    desc: "When time is of the essence, our expedited trucking services ensure your freight reaches its destination via the fastest possible route with zero layovers.",
+    img: "/img1.jpg",
+    imgPosition: "center center",
+    icon: Zap,
+    tag: "URGENT DELIVERY",
+    href: "/services/expedited-trucking",
+  },
+  {
+    num: "08",
+    category: "RAPID RESPONSE",
+    title: "HOTSHOT\nTRUCKING",
+    desc: "Dedicated hotshot capabilities for time-sensitive, smaller, or specialized loads. Immediate dispatch to get your crucial freight moving at a moment's notice.",
+    img: "/img2.png",
+    imgPosition: "center center",
+    icon: Flame,
+    tag: "DIRECT DISPATCH",
+    href: "/services/hotshot-trucking",
+  },
+  {
+    num: "09",
+    category: "CROSS-COUNTRY",
+    title: "LONG HAUL\nTRUCKING",
+    desc: "Extensive long-haul network bridging the distance. Our experienced drivers and well-maintained fleet ensure your cargo crosses state lines safely and on time.",
+    img: "/img3.png",
+    imgPosition: "center center",
+    icon: Map,
+    tag: "INTERSTATE",
+    href: "/services/long-haul-trucking",
+  },
+  {
+    num: "10",
+    category: "END-TO-END",
+    title: "FREIGHT\nTRANSPORTATION",
+    desc: "Versatile freight transportation handling all sizes and classes. We match your specific cargo with the ideal equipment to maximize efficiency.",
+    img: "/img1.jpg",
+    imgPosition: "center center",
+    icon: Navigation,
+    tag: "VERSATILE FLEET",
+    href: "/services/freight-transportation",
+  },
+  {
+    num: "11",
+    category: "SUPPLY CHAIN",
+    title: "FREIGHT\nFORWARDING",
+    desc: "Strategic freight forwarding logistics. We manage the network of carriers and complex routing to optimize your supply chain from origin to final destination.",
+    img: "/img2.png",
+    imgPosition: "center center",
+    icon: Globe,
+    tag: "LOGISTICS MANAGEMENT",
+    href: "/services/freight-forwarding",
   },
 ];
 
