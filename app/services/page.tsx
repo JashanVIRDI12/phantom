@@ -292,7 +292,7 @@ export default function ServicesPage() {
 
           {/* section label row */}
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "80px", borderBottom: "1px solid rgba(255,255,255,0.06)", paddingBottom: "32px" }}>
-            <span className="mono" style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.3)", letterSpacing: "3px" }}>SERVICES / 3 DISCIPLINES</span>
+            <span className="mono" style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.3)", letterSpacing: "3px" }}>SERVICES / 11 DISCIPLINES</span>
             <span className="mono" style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.3)", letterSpacing: "3px" }}>SCROLL TO EXPLORE ↓</span>
           </div>
 

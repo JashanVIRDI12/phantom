@@ -3,7 +3,7 @@ import { useRef } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ArrowUpRight, Flame, Map, AlertTriangle, TruckFast } from "lucide-react";
+import { ArrowUpRight, Flame, Map, AlertTriangle } from "lucide-react";
 import "../../home-glass.css";
 
 export default function HotshotTruckingPage() {
