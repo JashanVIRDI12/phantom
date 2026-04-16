@@ -128,9 +128,14 @@
 
 .glass-card:hover .glass-icon-wrap {
   background: var(--red);
-  color: #fff;
   border-color: var(--red);
   transform: scale(1.1) rotate(5deg);
+}
+
+.glass-card:hover .glass-icon-wrap svg,
+.glass-card:hover .glass-icon-wrap svg * {
+  color: #fff !important;
+  stroke: #fff !important;
 }
 
 .glass-btn {
