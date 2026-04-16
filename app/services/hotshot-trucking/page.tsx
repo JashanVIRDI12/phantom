@@ -37,7 +37,7 @@ export default function HotshotTruckingPage() {
           </h1>
           
           <p className="hero-fade" style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.8, maxWidth: "600px", fontFamily: "'Inter', sans-serif" }}>
-            Dedicated hotshot capabilities for time-sensitive, smaller, or specialized loads. Immediate dispatch to get your crucial freight moving at a moment's notice.
+            When timing leaves no margin for delay, hotshot trucking delivers immediate deployment for critical shipments. Built for speed and precision, it ensures your freight moves instantly with direct routing and zero dependency on standard schedules.
           </p>
         </div>
       </section>
@@ -45,9 +45,9 @@ export default function HotshotTruckingPage() {
       <section className="container mx-auto hero-fade" style={{ padding: "80px 5vw 160px" }}>
         <div className="glass-grid-3">
             {[ 
-              { icon: Flame, title: "IMMEDIATE DISPATCH", desc: "No delays. Hotshot implies speed on demand, meaning our drivers receive instant load-out authorizations to move your cargo." },
-              { icon: Map, title: "VERSATILE DELIVERY", desc: "Whether an oilfield site or an urban center, hotshot loads get straight to the destination without terminal stops." },
-              { icon: AlertTriangle, title: "EXCLUSIVITY", desc: "Your freight is the only freight. Dedicated flatbeds or sprinters ensuring full attention from pickup to drop-off." }
+              { icon: Flame, title: "IMMEDIATE DISPATCH", desc: "Activation happens instantly. No queue, no scheduling lag. Your load is assigned and moving the moment the request is confirmed." },
+              { icon: Map, title: "DIRECT EXECUTION", desc: "From remote job sites to dense urban zones, shipments move point-to-point with no terminal handling or unnecessary transfers." },
+              { icon: AlertTriangle, title: "DEDICATED LOAD PRIORITY", desc: "Each shipment moves alone. No consolidation, no sharing capacity, just focused execution with full control from pickup through delivery." }
             ].map((f, i) => (
               <div key={i} className="glass-card">
                 <div className="glass-icon-wrap" style={{ marginBottom: "24px", width: 56, height: 56 }}>
@@ -68,17 +68,17 @@ export default function HotshotTruckingPage() {
               <div className="glass-badge-dot" /> DEDICATED RESPONSE
             </div>
             <h2 className="display" style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", marginBottom: "32px", lineHeight: 1 }}>
-              RUTHLESS <br/><span className="text-gradient-red">SPEED.</span>
+              RAPID <br/><span className="text-gradient-red">DEPLOYMENT</span>
             </h2>
             <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.8, marginBottom: "24px", fontFamily: "'Inter', sans-serif" }}>
-              When heavy machinery breaks down or critical construction components go missing, you need solutions, not schedules. Phantom Logistics hotshot trucking delivers pure, unadulterated speed for specialized loads.
+              When operations stall or critical parts are missing, waiting is not an option. Our hotshot trucking is built for rapid deployment, moving specialized freight directly to site without delays, detours, or dependency on standard networks.
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
               {[
-                "Direct-to-site deliveries skipping distribution centers.",
-                "Suitable for construction, oil/gas, and specialized industries.",
-                "Customized equipment for oddly shaped or heavy items.",
-                "Absolute commitment to safety amidst accelerated timelines."
+                "Direct-to-site delivery with zero terminal handling",
+                "Built for industrial, energy, and time-critical operations",
+                "Specialized equipment for irregular or high-value cargo",
+                "Controlled execution with strict safety compliance under pressure"
               ].map((item, i) => (
                 <li key={i} style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "1rem", color: "rgba(255,255,255,0.8)", fontFamily: "'Inter', sans-serif" }}>
                   <AlertTriangle size={20} color="var(--red)" />

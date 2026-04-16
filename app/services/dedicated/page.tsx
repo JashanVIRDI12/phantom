@@ -37,7 +37,7 @@ export default function DedicatedPage() {
           </h1>
           
           <p className="hero-fade" style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.8, maxWidth: "600px", fontFamily: "'Inter', sans-serif" }}>
-            A dedicated fleet built around your business needs. You get consistent capacity, priority dispatch, and full control over how your freight moves every day.
+            A dedicated fleet solution designed for businesses that require consistent capacity and predictable operations. Your shipments move with priority access, structured scheduling, and complete operational control.
           </p>
         </div>
       </section>
@@ -45,9 +45,9 @@ export default function DedicatedPage() {
       <section className="container mx-auto hero-fade" style={{ padding: "80px 5vw 160px" }}>
         <div className="glass-grid-3">
             {[ 
-              { icon: Route, title: "GUARANTEED CAPACITY", desc: "Secure necessary capacity year-round without being reliant on fluctuating market availability." },
-              { icon: Zap, title: "PRIORITY DISPATCH", desc: "Gain total operational control with drivers exclusively focused on your unique routes." },
-              { icon: Users, title: "PARTNERSHIP FOCUS", desc: "We act as an extension of your own shipping operations with customized logistics plans." }
+              { icon: Route, title: "GUARANTEED CAPACITY", desc: "Dedicated resources ensure your shipments move without dependency on market availability. Your capacity stays consistent, even during high-demand periods." },
+              { icon: Zap, title: "PRIORITY DISPATCH", desc: "Your freight is scheduled and executed with priority. Dedicated drivers and routes ensure faster turnaround and better control over daily operations." },
+              { icon: Users, title: "OPERATIONAL PARTNERSHIP", desc: "We work as an extension of your logistics team, aligning routes, schedules, and capacity with your business requirements." }
             ].map((f, i) => (
               <div key={i} className="glass-card">
                 <div className="glass-icon-wrap" style={{ marginBottom: "24px", width: 56, height: 56 }}>
@@ -71,14 +71,14 @@ export default function DedicatedPage() {
               YOUR FLEET, <br/><span className="text-gradient-red">OUR EXECUTION</span>
             </h2>
             <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.8, marginBottom: "24px", fontFamily: "'Inter', sans-serif" }}>
-              Running an internal fleet diverts capital, time, and attention away from your core business. A Dedicated Fleet from Phantom Logistics gives you the reliability of a private fleet without the liability, maintenance overhead, or driver retention headaches.
+              Managing your own fleet requires capital, time, and constant oversight. A dedicated fleet from Phantom Logistics gives you the control of a private operation without the complexity of running one. We handle the execution, so you can stay focused on growing your business.
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
               {[
-                "Fixed pricing models to eliminate volatile market rates.",
-                "Custom-branded equipment to showcase your company.",
-                "SLA-driven performance metrics for accountability.",
-                "Cross-border capability with specialized permits and routes."
+                "Stable pricing to reduce exposure to market fluctuations",
+                "Custom fleet options aligned with your brand and operations",
+                "Performance tracking to maintain accountability and consistency",
+                "Cross-border support with route and compliance coordination"
               ].map((item, i) => (
                 <li key={i} style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "1rem", color: "rgba(255,255,255,0.8)", fontFamily: "'Inter', sans-serif" }}>
                   <ShieldCheck size={20} color="var(--red)" />

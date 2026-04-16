@@ -37,7 +37,7 @@ export default function ExpeditedTruckingPage() {
           </h1>
           
           <p className="hero-fade" style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.8, maxWidth: "600px", fontFamily: "'Inter', sans-serif" }}>
-            When time is of the essence, our expedited trucking services ensure your freight reaches its destination via the fastest possible route with zero layovers.
+            Time-critical shipments demand focused execution. Our expedited operations fast-track your freight through priority routing and dedicated handling, reducing delays and maintaining strict delivery timelines.
           </p>
         </div>
       </section>
@@ -45,9 +45,9 @@ export default function ExpeditedTruckingPage() {
       <section className="container mx-auto hero-fade" style={{ padding: "80px 5vw 160px" }}>
         <div className="glass-grid-3">
             {[ 
-              { icon: Zap, title: "NON-STOP TRANSIT", desc: "Team drivers operate continuously to keep wheels moving, avoiding standard layovers to deliver on aggressive timelines." },
-              { icon: Clock, title: "TIME CERTAINTY", desc: "Rigorous planning and dedicated logistics management ensuring stringent arrival windows are met precisely." },
-              { icon: FastForward, title: "PRIORITY DISPATCH", desc: "Expedited loads skip the standard queue. Immediate dispatch protocol means load confirmation to movement happens in minutes." }
+              { icon: Zap, title: "DIRECT TRANSIT FLOW", desc: "Coordinated team driving and route planning keep shipments moving with minimal dwell time and uninterrupted progression across long distances." },
+              { icon: Clock, title: "DELIVERY PRECISION", desc: "Structured planning and active oversight ensure shipments meet defined delivery windows with consistency and accuracy." },
+              { icon: FastForward, title: "PRIORITY DISPATCH", desc: "Expedited loads are advanced through dispatch queues, enabling immediate allocation and faster movement from confirmation to execution." }
             ].map((f, i) => (
               <div key={i} className="glass-card">
                 <div className="glass-icon-wrap" style={{ marginBottom: "24px", width: 56, height: 56 }}>
@@ -68,17 +68,17 @@ export default function ExpeditedTruckingPage() {
               <div className="glass-badge-dot" /> URGENT CAPABILITY
             </div>
             <h2 className="display" style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", marginBottom: "32px", lineHeight: 1 }}>
-              NO DELAYS. <br/><span className="text-gradient-red">NO EXCUSES.</span>
+              NO DELAYS. <br/><span className="text-gradient-red">CONTROLLED EXECUTION.</span>
             </h2>
             <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.8, marginBottom: "24px", fontFamily: "'Inter', sans-serif" }}>
-              Supply chain emergencies happen. Whether it's preventing a factory line shutdown or delivering high-priority medical supplies, Phantom Logistics approaches expedited trucking with a military-grade urgency and precision.
+              Critical shipments leave no room for disruption. Our expedited operations are designed to respond immediately, aligning routing, capacity, and dispatch to keep your freight moving without breakdowns in execution. Every stage is coordinated to maintain speed, accuracy, and accountability under time-sensitive conditions.
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
               {[
-                "Dedicated team drivers eliminating mandatory rest stop delays.",
-                "Customized routing avoiding congested geographical zones.",
-                "Guaranteed capacity availability for emergency freight.",
-                "Constant status updates fed directly to your logistics team."
+                "Team-based driving to sustain continuous movement across long hauls",
+                "Route planning designed to bypass congestion and bottlenecks",
+                "Immediate capacity allocation for urgent and time-critical loads",
+                "Real-time communication aligned with your operations team"
               ].map((item, i) => (
                 <li key={i} style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "1rem", color: "rgba(255,255,255,0.8)", fontFamily: "'Inter', sans-serif" }}>
                   <Timer size={20} color="var(--red)" />

@@ -3,7 +3,7 @@ import { useRef } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ArrowUpRight, Truck, ShieldCheck, Clock, MapPin } from "lucide-react";
+import { ArrowUpRight, ShieldCheck, Clock, MapPin } from "lucide-react";
 import "../../home-glass.css";
 
 export default function DryVanPage() {
@@ -37,7 +37,7 @@ export default function DryVanPage() {
           </h1>
           
           <p className="hero-fade" style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.8, maxWidth: "600px", fontFamily: "'Inter', sans-serif" }}>
-            Reliable and cost-effective transportation for general freight. Our dry van trailers protect your goods from weather and external conditions, ensuring safe and consistent delivery across every mile.
+            Reliable transportation for general freight across short and long distances. Our dry van services ensure your goods are protected, securely handled, and delivered on time without unnecessary delays.
           </p>
         </div>
       </section>
@@ -45,9 +45,9 @@ export default function DryVanPage() {
       <section className="container mx-auto hero-fade" style={{ padding: "80px 5vw 160px" }}>
         <div className="glass-grid-3">
             {[ 
-              { icon: ShieldCheck, title: "MAXIMUM SECURITY", desc: "Enclosed trailers ensure your cargo remains secure from the elements and protected during transit." },
-              { icon: Clock, title: "PUNCTUAL DELIVERY", desc: "Optimized routing and disciplined drivers keep your standard freight on schedule." },
-              { icon: MapPin, title: "NATIONWIDE REACH", desc: "Our extensive dry van fleet allows for reliable transportation across any distance." }
+              { icon: ShieldCheck, title: "MAXIMUM SECURITY", desc: "Enclosed dry van trailers protect your cargo from weather, dust, and external damage. Every shipment is handled with care to ensure safe and secure transit." },
+              { icon: Clock, title: "ON-TIME DELIVERY", desc: "We prioritize consistent timelines through planned routing and disciplined execution. Your freight arrives when expected, without delays." },
+              { icon: MapPin, title: "WIDE COVERAGE", desc: "Our network supports reliable transportation across multiple regions and distances, ensuring your freight moves smoothly wherever it needs to go." }
             ].map((f, i) => (
               <div key={i} className="glass-card">
                 <div className="glass-icon-wrap" style={{ marginBottom: "24px", width: 56, height: 56 }}>
@@ -68,17 +68,17 @@ export default function DryVanPage() {
               <div className="glass-badge-dot" /> SCALABLE CAPACITY
             </div>
             <h2 className="display" style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", marginBottom: "32px", lineHeight: 1 }}>
-              ENGINEERED FOR <br/><span className="text-gradient-red">CONSISTENCY</span>
+              BUILT FOR SCALABLE <br/><span className="text-gradient-red">CAPACITY</span>
             </h2>
             <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.8, marginBottom: "24px", fontFamily: "'Inter', sans-serif" }}>
-              Dry van trucking requires more than just available trailers—it demands meticulous planning, proactive tracking, and a network of drivers ready to move at a moment's notice. Phantom Logistics provides seamless dry van services designed to manage both scheduled freight and unexpected capacity surges.
+              Handling freight consistently requires the ability to adapt to changing volumes, tight timelines, and shifting operational demands. Phantom Logistics is structured to support both planned shipments and sudden capacity requirements without disrupting your flow. Whether it is a scheduled movement or an urgent load, our systems and fleet are aligned to respond without friction.
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
               {[
-                "Full Truckload (FTL) capabilities for volume shipments.",
-                "Drop-trailer programs for flexible loading schedules.",
-                "24/7 dispatch monitoring ensuring zero unnotified delays.",
-                "Late-model equipment reducing breakdown risks."
+                "Full Truckload (FTL) support for high-volume and dedicated shipments",
+                "Drop trailer options to streamline loading and reduce turnaround time",
+                "Active dispatch coordination to manage loads in real time",
+                "Modern equipment to maintain operational continuity across routes"
               ].map((item, i) => (
                 <li key={i} style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "1rem", color: "rgba(255,255,255,0.8)", fontFamily: "'Inter', sans-serif" }}>
                   <ShieldCheck size={20} color="var(--red)" />

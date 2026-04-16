@@ -37,7 +37,7 @@ export default function LtlTruckingPage() {
           </h1>
           
           <p className="hero-fade" style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.8, maxWidth: "600px", fontFamily: "'Inter', sans-serif" }}>
-            Efficient Less-Than-Truckload shipping for freight that doesn't require a full trailer. Share the ride and save on costs while maintaining reliable delivery schedules.
+            Partial loads require disciplined coordination. Our LTL operations are designed to integrate smaller shipments into structured freight networks, ensuring smooth transitions across multiple stops while maintaining operational clarity.
           </p>
         </div>
       </section>
@@ -45,9 +45,9 @@ export default function LtlTruckingPage() {
       <section className="container mx-auto hero-fade" style={{ padding: "80px 5vw 160px" }}>
         <div className="glass-grid-3">
             {[ 
-              { icon: DollarSign, title: "COST EFFICIENT", desc: "Pay only for the space you use. LTL allows you to ship smarter by dividing transport costs." },
-              { icon: Layers, title: "FLEXIBLE VOLUME", desc: "Accommodates fluctuations in your shipping volume without needing to charter dedicated trucks." },
-              { icon: Target, title: "ROUTINE PRECISION", desc: "Established hubs and cross-docking locations ensure your partial loads move with clockwork routine." }
+              { icon: DollarSign, title: "OPTIMIZED ALLOCATION", desc: "Ship smaller volumes without committing to full capacity. Our LTL structure ensures space is utilized efficiently across shared routes." },
+              { icon: Layers, title: "SCALABLE THROUGHPUT", desc: "Adjust shipment volumes as demand changes, without disrupting your distribution flow or requiring dedicated assets." },
+              { icon: Target, title: "NETWORK RHYTHM", desc: "Consistent movement through established hubs and transfer points keeps partial loads progressing with structured timing." }
             ].map((f, i) => (
               <div key={i} className="glass-card">
                 <div className="glass-icon-wrap" style={{ marginBottom: "24px", width: 56, height: 56 }}>
@@ -71,14 +71,14 @@ export default function LtlTruckingPage() {
               SHIP SMARTER <br/><span className="text-gradient-red">NOT HARDER</span>
             </h2>
             <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.8, marginBottom: "24px", fontFamily: "'Inter', sans-serif" }}>
-              LTL trucking is the backbone of efficient supply chains for businesses that don't always fill entire trailers. Phantom Logistics optimizes route consolidation so your partial shipments are treated with full-truckload priority.
+              LTL requires more than shared space; it demands precise coordination across multiple touchpoints. Our system aligns consolidation, routing, and terminal handling to ensure partial shipments move with consistency and control. Every load is managed to maintain flow, accuracy, and accountability across the network.
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
               {[
-                "Consolidated shipments reducing your carbon footprint.",
-                "Accessorial services like liftgates inside delivery.",
-                "Damage-free handling protocols at terminal transfers.",
-                "Accurate weighing and re-weighing discrepancy checks."
+                "Consolidated routing is designed to maximize load efficiency",
+                "Accessorial support tailored for complex delivery requirements",
+                "Controlled handling processes across transfer terminals",
+                "Verified weight management to prevent billing discrepancies"
               ].map((item, i) => (
                 <li key={i} style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "1rem", color: "rgba(255,255,255,0.8)", fontFamily: "'Inter', sans-serif" }}>
                   <CheckCircle2 size={20} color="var(--red)" />
@@ -99,7 +99,7 @@ export default function LtlTruckingPage() {
       <section style={{ padding: "0 5vw 160px" }}>
         <div style={{ maxWidth: "1360px", margin: "0 auto" }}>
           <div className="glass-panel" style={{ padding: "80px 40px", textAlign: "center", border: "1px solid rgba(232,0,13,0.15)" }}>
-            <h2 className="display" style={{ fontSize: "clamp(3rem, 5vw, 4.5rem)", marginBottom: "24px" }}>READY TO MOVE DRY FREIGHT?</h2>
+            <h2 className="display" style={{ fontSize: "clamp(3rem, 5vw, 4.5rem)", marginBottom: "24px" }}>READY TO OPTIMIZE YOUR LTL?</h2>
             <Link href="/contact" className="glass-btn">
               REQUEST QUOTE <ArrowUpRight />
             </Link>

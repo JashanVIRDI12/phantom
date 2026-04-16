@@ -37,7 +37,7 @@ export default function FreightForwardingPage() {
           </h1>
           
           <p className="hero-fade" style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.8, maxWidth: "600px", fontFamily: "'Inter', sans-serif" }}>
-            Strategic freight forwarding logistics. We manage the network of carriers and complex routing to optimize your supply chain from origin to final destination.
+            We design how your freight moves. From carrier selection to route execution, every decision is engineered to reduce delays, optimize flow, and maintain full control across complex supply chains.
           </p>
         </div>
       </section>
@@ -45,9 +45,9 @@ export default function FreightForwardingPage() {
       <section className="container mx-auto hero-fade" style={{ padding: "80px 5vw 160px" }}>
         <div className="glass-grid-3">
             {[ 
-              { icon: Globe, title: "GLOBAL REACH", desc: "Connecting markets through robust transport networks spanning vast distances and diverse geographical regions." },
-              { icon: Network, title: "SUPPLY LOGIC", desc: "Translating complex transit workflows into clear, actionable, and accelerated delivery schedules." },
-              { icon: Waypoints, title: "NODE EFFICIENCY", desc: "Harmonizing the transfer points between carriers and warehouses to eliminate sitting freight." }
+              { icon: Globe, title: "GLOBAL REACH", desc: "Move beyond local limits. Our extended carrier network connects key trade routes and regions, ensuring your freight reaches the right markets without unnecessary detours or delays." },
+              { icon: Network, title: "NETWORK INTELLIGENCE", desc: "We turn complex routing decisions into clear execution. Every shipment is mapped with precision, balancing speed, cost, and reliability across multiple carriers and transit points." },
+              { icon: Waypoints, title: "TRANSFER PRECISION", desc: "Every handoff is controlled. We align carriers, hubs, and schedules to eliminate idle time, reduce bottlenecks, and keep freight moving without disruption." }
             ].map((f, i) => (
               <div key={i} className="glass-card">
                 <div className="glass-icon-wrap" style={{ marginBottom: "24px", width: 56, height: 56 }}>
@@ -68,17 +68,17 @@ export default function FreightForwardingPage() {
               <div className="glass-badge-dot" /> STRATEGIC ROUTING
             </div>
             <h2 className="display" style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", marginBottom: "32px", lineHeight: 1 }}>
-              ARCHITECTING <br/><span className="text-gradient-red">THE CHAIN.</span>
+              ENGINEERING <br/><span className="text-gradient-red">THE CHAIN</span>
             </h2>
             <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.8, marginBottom: "24px", fontFamily: "'Inter', sans-serif" }}>
-              Moving freight through multiple carriers requires foresight and tight integration. We act as the central nervous system for your shipments, coordinating every touchpoint so you don't have to decipher logistics.
+              We engineer how your freight moves across complex networks. Every carrier, route, and transition is mapped, aligned, and controlled to deliver consistency, efficiency, and predictability at scale.
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
               {[
-                "Consolidation programs that reduce overall transport costs.",
-                "Customs and compliance advisory for frictionless transfers.",
-                "Risk mitigation protocols across multi-leg journeys.",
-                "Unified billing stripping away administrative overhead."
+                "Load consolidation models improve cost efficiency",
+                "Cross-border compliance handled without disruption",
+                "Structured risk management across multi-leg shipments",
+                "Single-point financial visibility across the entire journey"
               ].map((item, i) => (
                 <li key={i} style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "1rem", color: "rgba(255,255,255,0.8)", fontFamily: "'Inter', sans-serif" }}>
                   <LinkIcon size={20} color="var(--red)" />

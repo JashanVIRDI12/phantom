@@ -37,7 +37,7 @@ export default function WarehousingPage() {
           </h1>
           
           <p className="hero-fade" style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.8, maxWidth: "600px", fontFamily: "'Inter', sans-serif" }}>
-            Secure, structured, and scalable warehousing solutions. We provide short-term and long-term storage options with full inventory management, ensuring your goods are safe and ready for dispatch.
+            Efficient storage built to support your supply chain. Our warehousing solutions provide organized, secure handling of your inventory with clear visibility and quick access when it is time to move.
           </p>
         </div>
       </section>
@@ -45,9 +45,9 @@ export default function WarehousingPage() {
       <section className="container mx-auto hero-fade" style={{ padding: "80px 5vw 160px" }}>
         <div className="glass-grid-3">
             {[ 
-              { icon: ShieldCheck, title: "MAXIMUM SECURITY", desc: "Our facilities are monitored 24/7 with strict access controls to ensure your inventory is never compromised." },
-              { icon: Box, title: "INVENTORY CONTROL", desc: "Advanced management systems keep precise track of your goods from arrival directly through to departure." },
-              { icon: Warehouse, title: "SCALABLE SPACE", desc: "Flexible storage footprints that adapt to your seasonal surges and changing business requirements." }
+              { icon: ShieldCheck, title: "CONTROLLED ACCESS", desc: "Facilities are monitored with restricted access and controlled entry points, ensuring your inventory is handled only by authorized personnel." },
+              { icon: Box, title: "INVENTORY VISIBILITY", desc: "Track your inventory accurately from inbound to outbound. Every unit is logged, managed, and accounted for throughout its lifecycle in storage." },
+              { icon: Warehouse, title: "FLEXIBLE CAPACITY", desc: "Storage space adjusts based on your operational needs, allowing you to handle fluctuations in volume without disruption." }
             ].map((f, i) => (
               <div key={i} className="glass-card">
                 <div className="glass-icon-wrap" style={{ marginBottom: "24px", width: 56, height: 56 }}>
@@ -71,14 +71,14 @@ export default function WarehousingPage() {
               SMART STORAGE <br/><span className="text-gradient-red">SOLUTIONS</span>
             </h2>
             <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.8, marginBottom: "24px", fontFamily: "'Inter', sans-serif" }}>
-              Modern supply chains drop the ball without a reliable staging ground. Phantom Logistics bridges the gap between arrival and dispatch with optimized warehousing operations.
+              Efficient warehousing is about keeping freight moving. Our operations are designed to manage the transition between inbound and outbound with speed and coordination. We organize, stage, and position your inventory so it flows through your supply chain without bottlenecks or delays.
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
               {[
-                "Short-term cross-docking to keep freight moving.",
-                "Long-term distribution storage for reserve inventory.",
-                "Climate-adjusted zones for sensitive products.",
-                "Rapid loadouts integrated with our dispatch teams."
+                "Cross-docking to transfer freight directly between inbound and outbound shipments",
+                "Distribution storage for managing reserve and staged inventory",
+                "Zoned storage layouts for different product requirements",
+                "Coordinated loadouts aligned with dispatch schedules"
               ].map((item, i) => (
                 <li key={i} style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "1rem", color: "rgba(255,255,255,0.8)", fontFamily: "'Inter', sans-serif" }}>
                   <CheckSquare size={20} color="var(--red)" />

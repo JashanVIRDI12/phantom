@@ -37,7 +37,7 @@ export default function FreightTransportationPage() {
           </h1>
           
           <p className="hero-fade" style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.8, maxWidth: "600px", fontFamily: "'Inter', sans-serif" }}>
-            Versatile freight transportation handling all sizes and classes. We match your specific cargo with the ideal equipment to maximize efficiency and secure your goods entirely.
+            No two shipments move the same way. We design each freight movement around your cargo requirements, selecting the optimal equipment and routing strategy to maximize efficiency and maintain full control across every stage.
           </p>
         </div>
       </section>
@@ -45,9 +45,9 @@ export default function FreightTransportationPage() {
       <section className="container mx-auto hero-fade" style={{ padding: "80px 5vw 160px" }}>
         <div className="glass-grid-3">
             {[ 
-              { icon: Truck, title: "DIVERSE CAPACITY", desc: "A robust fleet equipped to handle anything from standardized pallets to abnormal load dimensions." },
-              { icon: BarChart, title: "DATA-DRIVEN", desc: "Telematics and predictive analytics fuel our transportation workflows, preventing delays before they occur." },
-              { icon: ShieldPlus, title: "TOTAL PROTECTION", desc: "Uncompromising safety standards and premium cargo insurance coverage across the entire transit window." }
+              { icon: Truck, title: "CAPACITY FLEXIBILITY", desc: "Adaptive fleet availability that scales with your demand, handling both standard shipments and complex load requirements without disruption." },
+              { icon: BarChart, title: "INTELLIGENT OPERATIONS", desc: "Real-time insights and system-driven decisions optimize every movement, identifying risks early and keeping shipments on track without reactive firefighting." },
+              { icon: ShieldPlus, title: "RISK CONTROL", desc: "End-to-end safeguards backed by strict operational protocols and comprehensive coverage, ensuring cargo integrity across every stage of transit." }
             ].map((f, i) => (
               <div key={i} className="glass-card">
                 <div className="glass-icon-wrap" style={{ marginBottom: "24px", width: 56, height: 56 }}>
@@ -68,17 +68,17 @@ export default function FreightTransportationPage() {
               <div className="glass-badge-dot" /> VERSATILE FLEET
             </div>
             <h2 className="display" style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", marginBottom: "32px", lineHeight: 1 }}>
-              MOVEMENT <br/><span className="text-gradient-red">ON COMMAND.</span>
+              MOVEMENT <br/><span className="text-gradient-red">ON COMMAND</span>
             </h2>
             <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.8, marginBottom: "24px", fontFamily: "'Inter', sans-serif" }}>
-              Transportation is about fluidity. From the loading dock to the final drop-off, your freight requires smooth handoffs and unwavering control. Phantom Logistics handles all modalities of transportation so your heavy lifting never becomes a heavy burden.
+              Freight doesn&apos;t move itself. It needs orchestration. From pickup to final delivery, every transition is engineered for continuity, control, and zero friction. Phantom Logistics synchronizes every moving part so your cargo never stalls, waits, or falls out of sequence.
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
               {[
-                "Capacity matching ensuring no wasted trailer space.",
-                "Real-time operational pivot capabilities during disruptions.",
-                "Seamless coordination with warehouse dispatch times.",
-                "Single point of contact for complex transit corridors."
+                "Dynamic load alignment to maximize every mile",
+                "Rapid decision-making frameworks during route disruptions",
+                "Precise dock-to-dispatch coordination across facilities",
+                "Centralized command handling complex multi-leg shipments"
               ].map((item, i) => (
                 <li key={i} style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "1rem", color: "rgba(255,255,255,0.8)", fontFamily: "'Inter', sans-serif" }}>
                   <Navigation size={20} color="var(--red)" />

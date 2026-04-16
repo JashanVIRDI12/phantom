@@ -37,7 +37,7 @@ export default function LongHaulTruckingPage() {
           </h1>
           
           <p className="hero-fade" style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.8, maxWidth: "600px", fontFamily: "'Inter', sans-serif" }}>
-            Extensive long-haul network bridging the distance. Our experienced drivers and well-maintained fleet ensure your cargo crosses state lines safely and on time.
+            Long-haul trucking is where consistency matters most. Our operations are built to maintain steady transit across extended routes, ensuring your freight moves with disciplined scheduling, controlled handoffs, and reliable delivery timelines across every mile.
           </p>
         </div>
       </section>
@@ -45,9 +45,9 @@ export default function LongHaulTruckingPage() {
       <section className="container mx-auto hero-fade" style={{ padding: "80px 5vw 160px" }}>
         <div className="glass-grid-3">
             {[ 
-              { icon: Map, title: "INTERSTATE DOMINANCE", desc: "Crossing state lines with full compliance and deep geographical route knowledge to prevent delays." },
-              { icon: Compass, title: "ROUTE OPTIMIZATION", desc: "Advanced forecasting accounts for weather and traffic variables well before the truck encounters them." },
-              { icon: Navigation, title: "DRIVER ENDURANCE", desc: "Regulated and compliant scheduling keeping our elite drivers fresh, focused, and legally moving." }
+              { icon: Map, title: "INTERSTATE CONTROL", desc: "Seamless movement across state lines with full regulatory alignment and precise route execution that avoids unnecessary slowdowns." },
+              { icon: Compass, title: "PREDICTIVE ROUTING", desc: "Routes are planned ahead of disruption. Traffic, weather, and corridor constraints are accounted for before they impact transit." },
+              { icon: Navigation, title: "SUSTAINED PERFORMANCE", desc: "Driver cycles are structured for long-distance continuity, ensuring consistent movement without fatigue-driven inefficiencies." }
             ].map((f, i) => (
               <div key={i} className="glass-card">
                 <div className="glass-icon-wrap" style={{ marginBottom: "24px", width: 56, height: 56 }}>
@@ -68,17 +68,17 @@ export default function LongHaulTruckingPage() {
               <div className="glass-badge-dot" /> MASSIVE REACH
             </div>
             <h2 className="display" style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", marginBottom: "32px", lineHeight: 1 }}>
-              WE GO THE <br/><span className="text-gradient-red">DISTANCE.</span>
+              CONSISTENCY <br/><span className="text-gradient-red">AT SCALE</span>
             </h2>
             <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.8, marginBottom: "24px", fontFamily: "'Inter', sans-serif" }}>
-              Long-haul trucking requires stamina, heavy logistical support, and vehicles operating at peak performance. Phantom Logistics treats a thousand-mile run with the exact same precision as a local cross-town drop.
+              Long-distance freight demands consistency at scale. Our operations are built to maintain controlled movement across extended routes, ensuring your cargo stays on schedule with the same precision from first mile to final delivery.
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
               {[
-                "Preventative maintenance to eliminate OTR (Over-The-Road) breakdowns.",
-                "Seamless real-time tracking across dead-zones via satellite modules.",
-                "Expert handling of interstate regulatory compliance.",
-                "Long-standing relationships with national relay hubs."
+                "Preventive fleet systems minimizing in-transit disruptions",
+                "Continuous visibility across remote and low-signal corridors",
+                "Structured compliance handling across multi-state routes",
+                "Coordinated relay networks to maintain uninterrupted movement"
               ].map((item, i) => (
                 <li key={i} style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "1rem", color: "rgba(255,255,255,0.8)", fontFamily: "'Inter', sans-serif" }}>
                   <Globe size={20} color="var(--red)" />

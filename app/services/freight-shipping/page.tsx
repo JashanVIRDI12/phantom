@@ -37,7 +37,7 @@ export default function FreightShippingPage() {
           </h1>
           
           <p className="hero-fade" style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.8, maxWidth: "600px", fontFamily: "'Inter', sans-serif" }}>
-            Comprehensive freight shipping services across domestic routes. From standard pallets to specialized loads, we coordinate the entire shipping process for seamless delivery.
+            Freight shipping requires coordination across different load types, routes, and timelines. We manage the planning and execution behind each shipment to ensure everything moves in sync from origin to destination.
           </p>
         </div>
       </section>
@@ -45,9 +45,9 @@ export default function FreightShippingPage() {
       <section className="container mx-auto hero-fade" style={{ padding: "80px 5vw 160px" }}>
         <div className="glass-grid-3">
             {[ 
-              { icon: Globe, title: "BROAD NETWORK", desc: "Leverage an extensive array of routes and carriers to get your freight wherever it needs to go, efficiently." },
-              { icon: PackageOpen, title: "VERSATILE LOADS", desc: "Standard, oversized, or specialized cargo—our operational structure handles varying freight classes with ease." },
-              { icon: MapPin, title: "PRECISION TRACKING", desc: "Full visibility through transit. Know exactly where your freight stands and when it arrives." }
+              { icon: Globe, title: "NETWORK COVERAGE", desc: "Access multiple routes and carrier options to move freight across regions without dependency on a single lane or provider." },
+              { icon: PackageOpen, title: "LOAD FLEXIBILITY", desc: "Handle different shipment types, including standard, oversized, and specialized cargo, with structured coordination across each load." },
+              { icon: MapPin, title: "SHIPMENT VISIBILITY", desc: "Stay informed with clear updates throughout transit, giving you better awareness of shipment progress and timing." }
             ].map((f, i) => (
               <div key={i} className="glass-card">
                 <div className="glass-icon-wrap" style={{ marginBottom: "24px", width: 56, height: 56 }}>
@@ -71,14 +71,14 @@ export default function FreightShippingPage() {
               FRICTIONLESS <br/><span className="text-gradient-red">EXECUTION</span>
             </h2>
             <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.8, marginBottom: "24px", fontFamily: "'Inter', sans-serif" }}>
-              Freight shouldn't be a headache. We strip away the complexity of logistics, connecting your cargo to the optimal routing paths and handling all the transitional paperwork seamlessly behind the scenes.
+              Complex logistics slows businesses down. We organize every step into a structured process, ensuring your freight moves without disruption or confusion.
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
               {[
-                "End-to-End freight management without the hassle.",
-                "Customized transport modes matched to your specific needs.",
-                "Proactive disruption handling to maintain schedules.",
-                "Streamlined billing and clear compliance documentation."
+                "End-to-end shipment coordination across all stages",
+                "Transport options aligned with specific load requirements",
+                "Active issue management to keep shipments on track",
+                "Simplified documentation and billing processes"
               ].map((item, i) => (
                 <li key={i} style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "1rem", color: "rgba(255,255,255,0.8)", fontFamily: "'Inter', sans-serif" }}>
                   <Truck size={20} color="var(--red)" />
@@ -99,7 +99,7 @@ export default function FreightShippingPage() {
       <section style={{ padding: "0 5vw 160px" }}>
         <div style={{ maxWidth: "1360px", margin: "0 auto" }}>
           <div className="glass-panel" style={{ padding: "80px 40px", textAlign: "center", border: "1px solid rgba(232,0,13,0.15)" }}>
-            <h2 className="display" style={{ fontSize: "clamp(3rem, 5vw, 4.5rem)", marginBottom: "24px" }}>READY TO MOVE DRY FREIGHT?</h2>
+            <h2 className="display" style={{ fontSize: "clamp(3rem, 5vw, 4.5rem)", marginBottom: "24px" }}>READY TO MOVE YOUR FREIGHT?</h2>
             <Link href="/contact" className="glass-btn">
               REQUEST QUOTE <ArrowUpRight />
             </Link>

@@ -37,7 +37,7 @@ export default function RefrigeratedPage() {
           </h1>
           
           <p className="hero-fade" style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.8, maxWidth: "600px", fontFamily: "'Inter', sans-serif" }}>
-            Temperature-controlled transport for perishable and sensitive goods. We maintain consistent conditions throughout transit to ensure your cargo arrives fresh, safe, and uncompromised.
+            Temperature-sensitive freight requires strict control at every stage. Our refrigerated transport ensures stable conditions throughout transit, protecting your cargo from spoilage, damage, or variation.
           </p>
         </div>
       </section>
@@ -45,9 +45,9 @@ export default function RefrigeratedPage() {
       <section className="container mx-auto hero-fade" style={{ padding: "80px 5vw 160px" }}>
         <div className="glass-grid-3">
             {[ 
-              { icon: Activity, title: "CLIMATE CONTROL", desc: "State-of-the-art reefers maintain exact temperature requirements for freeze or chill shipments." },
-              { icon: ShieldCheck, title: "COMPLIANCE & SAFETY", desc: "Strict adherence to safety guidelines ensuring food and pharmaceutical integrity." },
-              { icon: Timer, title: "TIME-SENSITIVE", desc: "Expedited handling for perishables to maximize shelf-life upon delivery." }
+              { icon: Activity, title: "CLIMATE CONTROL", desc: "Refrigerated units maintain consistent temperature ranges throughout transit, ensuring your cargo stays within required conditions from pickup to delivery." },
+              { icon: ShieldCheck, title: "COMPLIANCE & SAFETY", desc: "We follow strict handling and transport protocols to protect sensitive goods, ensuring product integrity for food, pharmaceuticals, and regulated shipments." },
+              { icon: Timer, title: "TIME-SENSITIVE HANDLING", desc: "Perishable shipments are prioritized with efficient dispatch and controlled transit timelines to reduce exposure and maintain product quality." }
             ].map((f, i) => (
               <div key={i} className="glass-card">
                 <div className="glass-icon-wrap" style={{ marginBottom: "24px", width: 56, height: 56 }}>
@@ -71,14 +71,14 @@ export default function RefrigeratedPage() {
               NO MARGIN FOR <br/><span className="text-gradient-red">ERROR</span>
             </h2>
             <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.8, marginBottom: "24px", fontFamily: "'Inter', sans-serif" }}>
-              When shipping temperature-controlled goods, a few degrees can ruin an entire load. Our refrigerated transport services utilize advanced monitoring and modern reefers to guarantee your cargo stays within exact specifications from origin to destination.
+              Temperature-sensitive freight demands strict control at every stage. Even minor fluctuations can compromise an entire shipment. Our refrigerated transport is built to maintain stable conditions from pickup to delivery, ensuring your cargo remains within required specifications throughout the journey.
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
               {[
-                "Continuous remote temperature tracking.",
-                "Multi-temp trailers for mixed commodity loads.",
-                "Sanitary, food-grade compliant trailer interiors.",
-                "Expedited team drivers available for sensitive perishables."
+                "Continuous temperature monitoring throughout transit",
+                "Multi-temperature trailer options for mixed shipments",
+                "Food-grade, sanitized trailer interiors",
+                "Expedited transit options for high-priority loads"
               ].map((item, i) => (
                 <li key={i} style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "1rem", color: "rgba(255,255,255,0.8)", fontFamily: "'Inter', sans-serif" }}>
                   <ShieldCheck size={20} color="var(--red)" />
