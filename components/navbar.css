@@ -237,6 +237,7 @@
 
 .nav-mobile--open {
   pointer-events: auto;
+  z-index: 101;
 }
 
 .nav-mobile-backdrop {

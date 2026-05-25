@@ -173,10 +173,10 @@ export default function Home() {
       </div>
 
       {/* ─── FEATURES ─── */}
-      <section className="glass-section" style={{ padding: "160px 5vw", position: "relative", maxWidth: "1400px", margin: "0 auto" }}>
+      <section className="glass-section features-section" style={{ padding: "160px 5vw", position: "relative", maxWidth: "1400px", margin: "0 auto" }}>
 
         {/* Section header */}
-        <div className="gsap-reveal" style={{ textAlign: "center", maxWidth: "820px", margin: "0 auto 100px", visibility: "hidden" }}>
+        <div className="gsap-reveal features-intro" style={{ textAlign: "center", maxWidth: "820px", margin: "0 auto 100px", visibility: "hidden" }}>
           <div className="glass-badge" style={{ margin: "0 auto 28px" }}>
             <div className="glass-badge-dot" /> CAPABILITIES
           </div>
@@ -246,7 +246,7 @@ export default function Home() {
       </section>
 
       {/* ─── CALL TO ACTION ─── */}
-      <section style={{ padding: "0 5vw 180px", maxWidth: "1400px", margin: "0 auto", position: "relative", zIndex: 10 }}>
+      <section className="cta-section" style={{ padding: "0 5vw 180px", maxWidth: "1400px", margin: "0 auto", position: "relative", zIndex: 10 }}>
         <div className="gsap-reveal glass-panel glass-parallax cta-panel" style={{ padding: "120px 60px", textAlign: "center", border: "1px solid rgba(232, 0, 13, 0.18)", position: "relative", overflow: "hidden", visibility: "hidden" }}>
 
           {/* Background red glow */}

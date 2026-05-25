@@ -415,6 +415,58 @@
     padding-left: 5vw !important;
     padding-right: 5vw !important;
   }
+
+  /* ── Home page section vertical spacing ── */
+  .stats-section {
+    padding-top: 40px !important;
+    padding-bottom: 0 !important;
+  }
+  .features-section {
+    padding-top: 72px !important;
+    padding-bottom: 72px !important;
+  }
+  .features-intro {
+    margin-bottom: 48px !important;
+  }
+  .cta-section {
+    padding-bottom: 80px !important;
+  }
+  .cta-panel {
+    padding: 56px 28px !important;
+  }
+  /* Shrink CTA corner decorations */
+  .cta-panel > div[style*="top: 32px"][style*="left: 32px"],
+  .cta-panel > div[style*="top: 32px"][style*="right: 32px"],
+  .cta-panel > div[style*="bottom: 32px"][style*="left: 32px"],
+  .cta-panel > div[style*="bottom: 32px"][style*="right: 32px"] {
+    width: 36px !important;
+    height: 36px !important;
+    top: 16px !important;
+    left: 16px !important;
+    right: 16px !important;
+    bottom: 16px !important;
+  }
+
+  /* CTA buttons stack on very small screens */
+  .cta-panel .glass-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 1.25rem !important;
+    padding: 14px 24px !important;
+  }
+  .cta-panel > div > div[style*="display: flex"] {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+
+  /* Stats grid: 2-col on mobile */
+  .stats-panel.grid-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .glass-stat {
+    padding: 28px 16px !important;
+  }
   .hero-floating {
     display: none !important;
   }

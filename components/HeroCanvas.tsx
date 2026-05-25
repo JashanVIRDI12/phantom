@@ -490,10 +490,41 @@ export default function HeroCanvas() {
         }
 
         @media (max-width: 768px) {
+          /* Hide heavy desktop-only overlays */
           .hc-corner-label, .hc-hud { display: none; }
-          .hc-panel-desc { max-width: 140px; font-size: 0.5rem; }
-          .hc-panel-title { font-size: 1.9rem; }
-          .hc-ticker { gap: 14px; font-size: 0.46rem; flex-wrap: wrap; padding: 0 16px; }
+
+          /* Smaller corner brackets */
+          .hc-corner-bracket { width: 40px; height: 40px; }
+          .hc-corner-tl { top: 16px; left: 16px; }
+          .hc-corner-tr { top: 16px; right: 16px; }
+          .hc-corner-bl { bottom: 12px; left: 16px; }
+          .hc-corner-br { bottom: 12px; right: 16px; }
+
+          /* Panels: constrain width so left & right never overlap */
+          .hc-panel-wrap { gap: 4px; }
+          .hc-panel-left-intro  { left: 4vw;  max-width: 44vw; }
+          .hc-panel-right-intro { right: 4vw; max-width: 44vw; }
+
+          .hc-panel-tag   { font-size: 0.42rem; letter-spacing: 0.16em; }
+          .hc-panel-title { font-size: 1.45rem; }
+          .hc-panel-rule  { margin: 2px 0 5px; }
+          .hc-panel-desc  { max-width: none; font-size: 0.43rem; line-height: 1.65; }
+          .hc-panel-stat  { font-size: 1.05rem; margin-top: 7px; padding-top: 7px; }
+
+          /* Ticker */
+          .hc-ticker { gap: 8px; font-size: 0.4rem; flex-wrap: wrap; padding: 0 12px; bottom: 14px; }
+
+          /* Scroll hint */
+          .hc-hint { bottom: 40px; font-size: 0.43rem; gap: 6px; }
+          .hc-hint-line { height: 26px; }
+        }
+
+        @media (max-width: 480px) {
+          .hc-panel-left-intro  { left: 3vw;  max-width: 46vw; }
+          .hc-panel-right-intro { right: 3vw; max-width: 46vw; }
+          .hc-panel-title { font-size: 1.25rem; }
+          .hc-panel-desc  { font-size: 0.4rem; }
+          .hc-ticker { font-size: 0.38rem; gap: 6px; }
         }
       `}</style>
 
