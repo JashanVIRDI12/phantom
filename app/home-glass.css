@@ -2,7 +2,7 @@
   background-color: #030303;
   color: #ffffff;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   z-index: 0;
   min-height: 100vh;
 }
@@ -286,7 +286,7 @@
 .glass-grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  gap: 32px;
 }
 @media (max-width: 1024px) {
   .glass-grid-3 {
@@ -297,6 +297,14 @@
   .glass-grid-3 {
     grid-template-columns: 1fr;
   }
+}
+
+/* ─── CTA panel enhancements ─── */
+.cta-panel {
+  transition: box-shadow 0.4s ease;
+}
+.cta-panel:hover {
+  box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 60px rgba(232,0,13,0.08);
 }
 
 .editorial-grid {
@@ -387,6 +395,12 @@
   padding: 140px 0;
   position: relative;
   z-index: 10;
+}
+
+/* ─── Feat card clip-path reveal base ─── */
+.feat-card {
+  clip-path: inset(0 100% 0 0);
+  opacity: 0;
 }
 
 /* MOBILE RESPONSIVENESS OVERRIDES */
@@ -485,4 +499,39 @@
 @media (max-width: 768px) {
   .desktop-only { display: none !important; }
   .mobile-only { display: block !important; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── HERO SCROLL ANIMATION HELPERS ─── */
+@keyframes scrollLineAnim {
+  0%   { transform: scaleY(0); transform-origin: top; opacity: 1; }
+  50%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  51%  { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+  100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+}
+
+/* Hero video element — initially scaled slightly for zoom headroom */
+.hero-video-el {
+  transform: scale(1.08);
+  transform-origin: center center;
+}
+
+/* Ensure hero-text-layer elements start invisible (GSAP will reveal them) */
+.hero-text-layer {
+  visibility: visible; /* let GSAP autoAlpha handle this */
+}
+
+/* Logo reveal wrapper centering */
+.hero-logo-reveal {
+  pointer-events: none;
+  user-select: none;
 }

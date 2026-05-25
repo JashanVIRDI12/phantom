@@ -1,15 +1,23 @@
 "use client";
-import React, { useRef, useEffect, MouseEvent } from "react";
+import React, { useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { ArrowUpRight, Phone, Mail, MapPin } from "lucide-react";
+import { ArrowUpRight, Phone, Mail, MapPin, CheckCircle, XCircle, Loader2 } from "lucide-react";
+import emailjs from "@emailjs/browser";
 import "../home-glass.css";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
+const EMAILJS_SERVICE_ID = "service_f5ttmj8";
+const EMAILJS_TEMPLATE_ID = "template_7dcl4i1";
+const EMAILJS_PUBLIC_KEY = "zEDvdNo9B_zlkcpei";
+
 export default function ContactPage() {
   const container = useRef<HTMLDivElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  const [sending, setSending] = useState(false);
+  const [toast, setToast] = useState<{ type: "success" | "error"; message: string } | null>(null);
 
   useGSAP(() => {
     // Hidden initialization 
@@ -37,7 +45,24 @@ export default function ContactPage() {
 
   }, { scope: container });
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formRef.current || sending) return;
 
+    setSending(true);
+    setToast(null);
+
+    try {
+      await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formRef.current, EMAILJS_PUBLIC_KEY);
+      setToast({ type: "success", message: "Message transmitted successfully! We'll respond within 24 hours." });
+      formRef.current.reset();
+    } catch {
+      setToast({ type: "error", message: "Transmission failed. Please try again or contact us directly." });
+    } finally {
+      setSending(false);
+      setTimeout(() => setToast(null), 6000);
+    }
+  };
 
   return (
     <div ref={container} className="home-glass-wrapper" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
@@ -93,42 +118,61 @@ export default function ContactPage() {
                     We routinely process encrypted logistics requests. A tactical representative will relay communications within extreme 24-hour turnaround windows.
                   </p>
                   
-                  <form style={{ display: 'flex', flexDirection: 'column', gap: '32px' }} onSubmit={(e) => e.preventDefault()}>
+                  <form ref={formRef} style={{ display: 'flex', flexDirection: 'column', gap: '32px' }} onSubmit={handleSubmit}>
                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '32px' }}>
                        <div className="form-field" style={{ display: 'flex', flexDirection: 'column', gap: '8px', visibility: 'hidden' }}>
                          <label className="mono text-red" style={{ fontSize: '0.75rem', fontWeight: 'bold', letterSpacing: '1px' }}>FIRST NAME</label>
-                         <input type="text" required style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)', padding: '16px', color: '#fff', outline: 'none', fontFamily: 'inherit', borderRadius: '4px', backdropFilter: 'blur(10px)' }} className="glass-input" />
+                         <input name="first_name" type="text" required style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)', padding: '16px', color: '#fff', outline: 'none', fontFamily: 'inherit', borderRadius: '4px', backdropFilter: 'blur(10px)' }} className="glass-input" />
                        </div>
                        <div className="form-field" style={{ display: 'flex', flexDirection: 'column', gap: '8px', visibility: 'hidden' }}>
                          <label className="mono text-red" style={{ fontSize: '0.75rem', fontWeight: 'bold', letterSpacing: '1px' }}>LAST NAME</label>
-                         <input type="text" required style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)', padding: '16px', color: '#fff', outline: 'none', fontFamily: 'inherit', borderRadius: '4px', backdropFilter: 'blur(10px)' }} className="glass-input" />
+                         <input name="last_name" type="text" required style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)', padding: '16px', color: '#fff', outline: 'none', fontFamily: 'inherit', borderRadius: '4px', backdropFilter: 'blur(10px)' }} className="glass-input" />
                        </div>
                      </div>
 
                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '32px' }}>
                        <div className="form-field" style={{ display: 'flex', flexDirection: 'column', gap: '8px', visibility: 'hidden' }}>
                          <label className="mono text-red" style={{ fontSize: '0.75rem', fontWeight: 'bold', letterSpacing: '1px' }}>EMAIL COMMS</label>
-                         <input type="email" required style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)', padding: '16px', color: '#fff', outline: 'none', fontFamily: 'inherit', borderRadius: '4px', backdropFilter: 'blur(10px)' }} className="glass-input" />
+                         <input name="email" type="email" required style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)', padding: '16px', color: '#fff', outline: 'none', fontFamily: 'inherit', borderRadius: '4px', backdropFilter: 'blur(10px)' }} className="glass-input" />
                        </div>
                        <div className="form-field" style={{ display: 'flex', flexDirection: 'column', gap: '8px', visibility: 'hidden' }}>
                          <label className="mono text-red" style={{ fontSize: '0.75rem', fontWeight: 'bold', letterSpacing: '1px' }}>PHONE DISPATCH LINE</label>
-                         <input type="tel" required style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)', padding: '16px', color: '#fff', outline: 'none', fontFamily: 'inherit', borderRadius: '4px', backdropFilter: 'blur(10px)' }} className="glass-input" />
+                         <input name="phone" type="tel" required style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)', padding: '16px', color: '#fff', outline: 'none', fontFamily: 'inherit', borderRadius: '4px', backdropFilter: 'blur(10px)' }} className="glass-input" />
                        </div>
                      </div>
 
                      <div className="form-field" style={{ display: 'flex', flexDirection: 'column', gap: '8px', visibility: 'hidden' }}>
                        <label className="mono text-red" style={{ fontSize: '0.75rem', fontWeight: 'bold', letterSpacing: '1px' }}>SPECIFIC SERVICE REQUIRED</label>
-                       <input type="text" required placeholder="Dry Van, Refrigerated, Dedicated..." style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)', padding: '16px', color: '#fff', outline: 'none', fontFamily: 'inherit', borderRadius: '4px', backdropFilter: 'blur(10px)' }} className="glass-input" />
+                       <input name="service" type="text" required placeholder="Dry Van, Refrigerated, Dedicated..." style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)', padding: '16px', color: '#fff', outline: 'none', fontFamily: 'inherit', borderRadius: '4px', backdropFilter: 'blur(10px)' }} className="glass-input" />
                      </div>
 
                      <div className="form-field" style={{ display: 'flex', flexDirection: 'column', gap: '8px', visibility: 'hidden' }}>
                        <label className="mono text-red" style={{ fontSize: '0.75rem', fontWeight: 'bold', letterSpacing: '1px' }}>ENCRYPTED MESSAGE LAYOUT</label>
-                       <textarea rows={5} required placeholder="Describe cargo weight, pickup locations, unique parameters..." style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)', padding: '16px', color: '#fff', outline: 'none', fontFamily: 'inherit', borderRadius: '4px', resize: 'vertical', backdropFilter: 'blur(10px)' }} className="glass-input" />
+                       <textarea name="message" rows={5} required placeholder="Describe cargo weight, pickup locations, unique parameters..." style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)', padding: '16px', color: '#fff', outline: 'none', fontFamily: 'inherit', borderRadius: '4px', resize: 'vertical', backdropFilter: 'blur(10px)' }} className="glass-input" />
                      </div>
 
-                     <button type="submit" className="glass-btn form-field" style={{ alignSelf: 'flex-start', marginTop: '16px', fontSize: '1.2rem', padding: '16px 36px', visibility: 'hidden', border: '1px solid rgba(232,0,13,0.5)', background: 'rgba(232,0,13,0.1)', boxShadow: '0 0 20px rgba(232,0,13,0.2)' }}>
-                       TRANSMIT DIRECTIVE <ArrowUpRight size={20} />
+                     <button type="submit" disabled={sending} className="glass-btn form-field" style={{ alignSelf: 'flex-start', marginTop: '16px', fontSize: '1.2rem', padding: '16px 36px', visibility: 'hidden', border: '1px solid rgba(232,0,13,0.5)', background: 'rgba(232,0,13,0.1)', boxShadow: '0 0 20px rgba(232,0,13,0.2)', opacity: sending ? 0.6 : 1, cursor: sending ? 'not-allowed' : 'pointer', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                       {sending ? (
+                         <><Loader2 size={20} style={{ animation: 'spin 1s linear infinite' }} /> TRANSMITTING...</>
+                       ) : (
+                         <>TRANSMIT DIRECTIVE <ArrowUpRight size={20} /></>
+                       )}
                      </button>
+
+                     {/* Toast Notification */}
+                     {toast && (
+                       <div style={{
+                         display: 'flex', alignItems: 'center', gap: '12px',
+                         padding: '16px 24px', borderRadius: '8px',
+                         background: toast.type === 'success' ? 'rgba(34,197,94,0.1)' : 'rgba(239,68,68,0.1)',
+                         border: `1px solid ${toast.type === 'success' ? 'rgba(34,197,94,0.3)' : 'rgba(239,68,68,0.3)'}`,
+                         color: toast.type === 'success' ? '#22c55e' : '#ef4444',
+                         animation: 'fadeIn 0.3s ease-out'
+                       }}>
+                         {toast.type === 'success' ? <CheckCircle size={20} /> : <XCircle size={20} />}
+                         <span className="mono" style={{ fontSize: '0.9rem', textTransform: 'none', letterSpacing: 'normal' }}>{toast.message}</span>
+                       </div>
+                     )}
                   </form>
                </div>
             </div>
