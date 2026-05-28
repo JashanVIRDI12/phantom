@@ -379,12 +379,10 @@ export default function ServicesPage() {
 
                     {/* title */}
                     <h2 className="display" style={{
-                      fontSize: "clamp(2rem, 3.2vw, 4rem)",
-                      lineHeight: 0.95, color: "#fff",
+                      fontSize: "clamp(1.6rem, 2.2vw, 2.5rem)",
+                      lineHeight: 1.05, color: "#fff",
                       marginBottom: "32px",
                       whiteSpace: "pre-line",
-                      wordBreak: "break-word",
-                      overflowWrap: "break-word",
                     }}>{s.title}</h2>
 
                     {/* thin red rule */}
